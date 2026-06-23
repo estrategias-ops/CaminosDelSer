@@ -3,34 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAC: Tu Guía para una Vida con Propósito y Proyectos que Transforman</title>
+    <title>Caminos del Ser | Psicología Humanista · Propósito · Transformación</title>
+    <meta name="description" content="Caminos del Ser: acompañamiento psicológico humanista-existencial para descubrir tu propósito de vida, fortalecer tus relaciones y construir proyectos que transformen tu existencia.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <!-- Icono para el desplegable (chevron down) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJc5f5U0LpW7T7Y8i0hM3K2N42yM6A3V6w0Y8CgR8/n3Q3K5p5P5y5q5e5i5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        :root {
+            --verde-oscuro: #1B4332;
+            --verde-medio: #2D6A4F;
+            --verde-claro: #52B788;
+            --dorado: #C9A84C;
+            --dorado-claro: #F0C96B;
+            --crema: #F9F5EC;
+            --blanco: #FFFFFF;
+            --gris-oscuro: #2C2C2C;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Tailwind gray-50 */
-            color: #333; /* Tailwind gray-800 */
+            background-color: var(--crema);
+            color: var(--gris-oscuro);
         }
-        .text-gradient {
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
         }
-        .bg-gradient-blue {
-            background-image: linear-gradient(to right, #00B4D8, #0077B6); /* Brilliant Blues */
+
+        .bg-gradient-cds {
+            background: linear-gradient(135deg, var(--verde-oscuro) 0%, var(--verde-medio) 60%, var(--verde-claro) 100%);
         }
-        /* Estilos para el banner de cookies */
-        .cookie-banner {
+
+        .bg-gradient-dorado {
+            background: linear-gradient(135deg, var(--dorado) 0%, var(--dorado-claro) 100%);
+        }
+
+        .text-verde { color: var(--verde-medio); }
+        .text-dorado { color: var(--dorado); }
+        .text-verde-oscuro { color: var(--verde-oscuro); }
+
+        .border-dorado { border-color: var(--dorado); }
+        .bg-verde-oscuro { background-color: var(--verde-oscuro); }
+        .bg-crema { background-color: var(--crema); }
+
+        /* Hero */
+        .hero-bg {
+            background: linear-gradient(160deg, #0f2d1f 0%, #1B4332 45%, #2D6A4F 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(82,183,136,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        /* Tarjetas de servicio */
+        .service-card {
+            border-top: 4px solid var(--dorado);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(27,67,50,0.15);
+        }
+
+        /* Botón principal */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--dorado) 0%, var(--dorado-claro) 100%);
+            color: var(--verde-oscuro);
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201,168,76,0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--dorado);
+            border: 2px solid var(--dorado);
+            font-weight: 600;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--dorado);
+            color: var(--verde-oscuro);
+            transform: translateY(-2px);
+        }
+
+        /* Separador ornamental */
+        .ornament {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .ornament::before,
+        .ornament::after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background: var(--dorado);
+        }
+
+        /* Estadísticas */
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--dorado);
+            line-height: 1;
+        }
+
+        /* Testimonio */
+        .testimonial-card {
+            background: white;
+            border-left: 4px solid var(--dorado);
+            box-shadow: 0 4px 24px rgba(27,67,50,0.08);
+        }
+
+        /* Equipo */
+        .team-img-wrapper {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--dorado);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .team-img-wrapper:hover {
+            border-color: var(--verde-claro);
+            transform: scale(1.05);
+        }
+
+        /* Nav */
+        .nav-link {
+            color: #4B5563;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--verde-medio);
+        }
+
+        /* Sección con fondo oscuro */
+        .section-dark {
+            background: linear-gradient(160deg, #0f2d1f 0%, #1B4332 100%);
+            color: white;
+        }
+
+        /* Cookie banner */
+        #cookieBanner {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: #333; /* Dark background */
+            background: #1a1a1a;
             color: white;
             padding: 1rem 1.5rem;
             display: flex;
@@ -38,367 +201,616 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            font-size: 0.875rem; /* text-sm */
-            z-index: 1000;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            font-size: 0.875rem;
+            z-index: 9999;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
         }
-        .cookie-banner p {
-            margin-bottom: 1rem;
-            max-width: 800px;
-        }
-        .cookie-banner button {
-            background-color: #00B4D8;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-weight: bold;
-            transition: background-color 0.2s ease-in-out;
-        }
-        .cookie-banner button:hover {
-            background-color: #0077B6;
-        }
+
         @media (min-width: 768px) {
-            .cookie-banner {
+            #cookieBanner {
                 flex-direction: row;
                 justify-content: space-between;
-                padding: 1rem 2rem;
             }
-            .cookie-banner p {
-                margin-bottom: 0;
-                margin-right: 1.5rem;
+
+            #cookieBanner p {
+                margin-right: 2rem;
             }
+        }
+
+        /* Scroll suave y animaciones de entrada */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Botón WhatsApp flotante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 80px;
+            right: 24px;
+            z-index: 9998;
+            background: #25D366;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body>
 
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <!-- Logo para el menú superior -->
-                <img src="logo.png" alt="Logo de CDS" class="h-10 w-10 rounded-full">
-                <div class="text-2xl font-bold text-gray-800">
-                    <a href="clases.html"><span class="text-gradient bg-gradient-blue">Jorge Arango Castaño</span></a>
-                </div>
-            </div>
-            
-            <!-- Menú de Navegación (Escritorio) -->
-            <!-- NOTA: Eliminamos 'group' del div para usar control por JS -->
-            <div class="hidden md:flex space-x-6 items-center">
-                <a href="#sobre-mi" class="text-gray-600 hover:text-[#0077B6] transition">Sobre Mí</a>
-                <a href="#servicios" class="text-gray-600 hover:text-[#0077B6] transition">Servicios</a>
-                <a href="#contacto" class="text-gray-600 hover:text-[#0077B6] transition">Contacto</a>
-                
-                <!-- Menú Desplegable Productos para escritorio - Controlado por JS -->
-                <!-- Mantenemos 'relative' para el posicionamiento -->
-                <div class="relative">
-                    <button id="dropdownBtnDesktop" class="flex items-center text-gray-600 hover:text-[#0077B6] transition focus:outline-none">
-                        Productos 
-                        <!-- Añadimos 'dropdown-chevron' para rotación en JS -->
-                        <i class="fas fa-chevron-down ml-1 text-xs transition-transform dropdown-chevron"></i>
-                    </button>
-                    <!-- Las clases de invisibilidad se manejan en JS -->
-                    <div id="dropdownMenuDesktop" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible transition-opacity duration-300 transform scale-95 z-50">
-                        <a href="psicologos4.0.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-t-lg">Cursos</a>
-                        <a href="https://cinformado.caminosdelser.co" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-b-lg">CInformado</a>
-                    </div>
-                </div>
+    <!-- ═══════════════════════════════════════
+         NAVEGACIÓN
+    ═══════════════════════════════════════ -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center max-w-6xl">
+            <a href="#inicio" class="flex items-center gap-3">
+                <img src="logoprincipal.png" alt="Caminos del Ser" class="h-10">
+            </a>
 
-                <a href="#red-profesionales" class="text-gray-600 hover:text-[#0077B6] transition">Red de Apoyo</a>
-            </div>
-
-            <!-- Botones y Menú Móvil -->
-            <div class="md:hidden flex items-center space-x-4">
-                <!-- Menú Desplegable Productos para móvil -->
-                <div class="relative">
-                    <button id="dropdownBtnMobile" class="flex items-center bg-gradient-blue text-white font-bold py-2 px-4 rounded-full hover:shadow-lg transition transform hover:scale-105">
-                        Productos 
-                        <i class="fas fa-chevron-down ml-2 text-xs transition-transform transform"></i>
-                    </button>
-                    <!-- El menú se controla con JS en móvil -->
-                    <div id="dropdownMenuMobile" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible transition-opacity duration-300 transform scale-95 z-50">
-                        <a href="psicologos4.0.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-t-lg">Cursos</a>
-                        <a href="https://cinformado.caminosdelser.co" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-b-lg">CInformado</a>
-                    </div>
-                </div>
-                
-                <!-- Botón para escritorio (oculto en móvil) -->
-                <a href="#servicios" class="hidden bg-gradient-blue text-white font-bold py-2 px-4 rounded-full hover:shadow-lg transition transform hover:scale-105">
-                    Conoce mis Servicios
+            <!-- Desktop nav -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#nosotros" class="nav-link">Nosotros</a>
+                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#equipo" class="nav-link">Equipo</a>
+                <a href="#testimonios" class="nav-link">Testimonios</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+                <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Caminos%20del%20Ser." class="btn-primary text-sm py-2 px-5">
+                    Agenda tu sesión
                 </a>
             </div>
+
+            <!-- Mobile menu button -->
+            <button id="mobileMenuBtn" class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
         </nav>
+
+        <!-- Mobile nav -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-3">
+            <a href="#nosotros" class="block nav-link py-1">Nosotros</a>
+            <a href="#servicios" class="block nav-link py-1">Servicios</a>
+            <a href="#equipo" class="block nav-link py-1">Equipo</a>
+            <a href="#testimonios" class="block nav-link py-1">Testimonios</a>
+            <a href="#contacto" class="block nav-link py-1">Contacto</a>
+            <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Caminos%20del%20Ser." class="btn-primary text-sm inline-block mt-2">
+                Agenda tu sesión
+            </a>
+        </div>
     </header>
 
     <main>
-        <section id="hero" class="py-20 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                <div class="mb-6">
-                    <!-- Logo principal para el hero section -->
-                    <img src="logoprincipal.png" alt="Logo Principal de CDS" class="mx-auto h-24">
-                </div>
-                <!-- Reducción del tamaño de la fuente de md:text-6xl a md:text-5xl -->
-                <h1 class="text-4xl md:text-5xl font-black mb-4 leading-tight">
-                    <span class="text-gradient bg-gradient-blue">En Caminos del Ser:</span> Encontrarás una Guía completa para la orientación en tu propósito y proyecto de vida
+
+    <!-- ═══════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════ -->
+    <section id="inicio" class="hero-bg text-white py-24 md:py-32">
+        <div class="container mx-auto px-6 max-w-6xl relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <span class="inline-block text-sm font-semibold tracking-widest uppercase mb-4" style="color: var(--dorado-claro);">Una marca Emcotic</span>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+                    Caminos<br>
+                    <span style="color: var(--dorado);">del Ser</span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                    Como psicólogo humanista-existencial, certificado en PNL y Mg. en Dirección y Gestión de Proyectos, te acompaño a descubrir el sentido profundo de tu existencia y a construir la vida que realmente deseas.
-                </p>
-                <a href="#servicios" class="bg-gradient-blue text-white font-bold py-3 px-4 text-sm rounded-full hover:shadow-xl transition transform hover:scale-105 sm:px-6 sm:text-base md:px-8 md:text-lg">
-                    Descubre cómo puedo ayudarte
-                </a>
-            </div>
-        </section>
-
-        <section id="sobre-mi" class="py-16">
-            <div class="container mx-auto px-6">
-                <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:flex items-center gap-12">
-                    <div class="lg:w-1/3 text-center">
-                        <img src="jac.png" alt="JAC" class="rounded-full w-80 h-80 mx-auto mb-4 border-4 border-white shadow-lg">
-                    </div>
-                    <div class="lg:w-2/3 text-gray-700 text-lg leading-relaxed">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gradient bg-gradient-blue">Sobre Mí</h2>
-                        <p class="mb-4">
-                            Mi pasión es acompañar a las personas en su viaje de autodescubrimiento y realización. Con una sólida formación como psicólogo de corriente humanista-existencial, mi enfoque se centra en potenciar tus capacidades intrínsecas y ayudarte a encontrar un sentido profundo en cada etapa de tu vida.
-                        </p>
-                        <p class="mb-4">
-                            Desde 2016, he tenido el privilegio de atender a cientos de pacientes, guiándolos a través de sus desafíos y celebrando sus transformaciones. Mi experiencia se complementa con una maestría en Dirección y Gestión de Proyectos, lo que me permite no solo entender el "porqué" de tus aspiraciones, sino también el "cómo" para convertirlas en realidades concretas.
-                        </p>
-                        <p>
-                            Soy experto en Programación Neurolingüística (PNL) con múltiples certificaciones, lo que me brinda herramientas poderosas para trabajar con tus patrones de pensamiento, comunicación y comportamiento, facilitando cambios profundos y duraderos. Además, soy docente universitario desde 2011, lo que me ha permitido perfeccionar la habilidad de transmitir conocimientos de forma clara y efectiva.
-                        </p>
-                    </div>
+                <div class="ornament">
+                    <span class="text-sm font-medium tracking-wider" style="color: var(--verde-claro);">✦ PSICOLOGÍA · PROPÓSITO · TRANSFORMACIÓN ✦</span>
                 </div>
-            </div>
-        </section>
-
-        <section id="servicios" class="py-16 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-gradient bg-gradient-blue">Mis Servicios</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-                    Ofrezco un acompañamiento integral para que encuentres claridad, construyas tu camino y alcances tus metas más significativas.
+                <p class="text-xl md:text-2xl font-light text-gray-200 mb-10 leading-relaxed max-w-2xl mx-auto">
+                    Acompañamiento humanista-existencial para descubrir el sentido profundo de tu vida y construir los proyectos que mereces.
                 </p>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 text-left">
-                    <div class="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
-                        <div class="text-4xl text-[#0077B6] mb-4">👤</div> <!-- Unicode icon -->
-                        <h3 class="font-bold text-xl mb-2">Orientación en Propósito y Proyecto de Vida</h3>
-                        <p class="text-gray-700">
-                            Te guío en la identificación de tu propósito de vida y en la creación de proyectos concretos para materializarlo. Acompaño a pacientes desde los 15 años en adelante, sin límite de edad, para construir una existencia con sentido y estabilidad.
-                        </p>
-                    </div>
-                    <a href="https://dpvp.caminosdelser.co" class="block bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
-                        <div class="text-4xl text-[#0077B6] mb-4">💞</div> <!-- Unicode icon -->
-                        <h3 class="font-bold text-xl mb-2">Atención a Parejas</h3>
-                        <p class="text-gray-700">
-                            Acompaño a parejas a alinear sus propósitos individuales y a construir proyectos de vida conjuntos que fortalezcan su relación y les permitan crecer juntos en armonía y dirección.
-                        </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20agendar%20una%20sesi%C3%B3n%20en%20Caminos%20del%20Ser." class="btn-primary text-lg">
+                        Agenda tu primera sesión
                     </a>
-                    <div class="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
-                        <div class="4xl text-[#0077B6] mb-4">🏢</div> <!-- Unicode icon -->
-                        <h3 class="font-bold text-xl mb-2">Talleres a Empresas e Instituciones Educativas</h3>
-                        <p class="text-gray-700">
-                            Diseño e imparto talleres personalizados sobre propósito, proyecto de vida, PNL, liderazgo y gestión del cambio, adaptados a las necesidades de organizaciones y centros educativos.
-                        </p>
+                    <a href="#servicios" class="btn-secondary text-lg">
+                        Conoce nuestros servicios
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         ESTADÍSTICAS
+    ═══════════════════════════════════════ -->
+    <section class="bg-white py-14">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="fade-in">
+                    <div class="stat-number">+9</div>
+                    <p class="text-gray-500 font-medium mt-1">Años de experiencia</p>
+                </div>
+                <div class="fade-in">
+                    <div class="stat-number">+500</div>
+                    <p class="text-gray-500 font-medium mt-1">Personas acompañadas</p>
+                </div>
+                <div class="fade-in">
+                    <div class="stat-number">6</div>
+                    <p class="text-gray-500 font-medium mt-1">Profesionales en red</p>
+                </div>
+                <div class="fade-in">
+                    <div class="stat-number">4</div>
+                    <p class="text-gray-500 font-medium mt-1">Líneas de servicio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         NOSOTROS / PROPUESTA DE VALOR
+    ═══════════════════════════════════════ -->
+    <section id="nosotros" class="py-20" style="background-color: var(--crema);">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <img src="jac.png" alt="Jorge Arango Castaño" class="rounded-2xl w-full max-w-md mx-auto shadow-2xl object-cover" style="max-height: 520px;">
+                </div>
+                <div class="fade-in">
+                    <span class="text-sm font-semibold tracking-widest uppercase text-verde-oscuro" style="color:var(--verde-claro);">Quiénes somos</span>
+                    <h2 class="text-4xl md:text-5xl font-black mt-2 mb-6 text-verde-oscuro leading-tight" style="color:var(--verde-oscuro);">
+                        Tu vida tiene<br>un propósito.<br>
+                        <span style="color: var(--dorado);">Descúbrelo.</span>
+                    </h2>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-5">
+                        <strong>Caminos del Ser</strong> es el espacio creado por <strong>Jorge Arango Castaño</strong>, psicólogo humanista-existencial, certificado en PNL y Magíster en Dirección y Gestión de Proyectos, para acompañar a personas que buscan encontrar sentido, claridad y dirección en su vida.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-5">
+                        Desde 2016, hemos acompañado a cientos de personas —desde adolescentes hasta adultos mayores— en el proceso más importante que existe: <em>conocerse a sí mismos</em> y construir una vida alineada con sus valores y sueños.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                        Trabajamos con un enfoque interdisciplinario, apoyados en una red de profesionales especializados, para ofrecerte un acompañamiento integral y transformador.
+                    </p>
+                    <a href="#servicios" class="btn-primary">
+                        Ver nuestros servicios
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         ¿PARA QUIÉN ES?
+    ═══════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6 max-w-5xl text-center">
+            <span class="text-sm font-semibold tracking-widest uppercase" style="color:var(--verde-claro);">¿Es para ti?</span>
+            <h2 class="text-3xl md:text-4xl font-black mt-2 mb-12" style="color:var(--verde-oscuro);">Caminos del Ser te acompaña si...</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-dorado fade-in" style="border-color: var(--dorado);">
+                    <div class="text-3xl mb-3">🌀</div>
+                    <p class="text-gray-700 font-medium">Sientes que tu vida no tiene dirección clara y no sabes qué quieres realmente.</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 border-l-4 fade-in" style="border-color: var(--dorado);">
+                    <div class="text-3xl mb-3">💭</div>
+                    <p class="text-gray-700 font-medium">Tienes sueños pero no sabes cómo convertirlos en proyectos concretos y realizables.</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 border-l-4 fade-in" style="border-color: var(--dorado);">
+                    <div class="text-3xl mb-3">💑</div>
+                    <p class="text-gray-700 font-medium">Tu relación de pareja necesita un nuevo rumbo compartido y mayor alineación de propósitos.</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 border-l-4 fade-in" style="border-color: var(--dorado);">
+                    <div class="text-3xl mb-3">🔄</div>
+                    <p class="text-gray-700 font-medium">Estás en una transición vital —cambio de carrera, separación, jubilación— y necesitas apoyo.</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 border-l-4 fade-in" style="border-color: var(--dorado);">
+                    <div class="text-3xl mb-3">🏢</div>
+                    <p class="text-gray-700 font-medium">Lideras un equipo o institución y quieres fortalecer el propósito colectivo y el bienestar.</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 border-l-4 fade-in" style="border-color: var(--dorado);">
+                    <div class="text-3xl mb-3">🚀</div>
+                    <p class="text-gray-700 font-medium">Tienes un proyecto en mente y necesitas orientación profesional para formularlo y ejecutarlo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SERVICIOS
+    ═══════════════════════════════════════ -->
+    <section id="servicios" class="py-20" style="background-color: var(--crema);">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-14">
+                <span class="text-sm font-semibold tracking-widest uppercase" style="color:var(--verde-claro);">Lo que ofrecemos</span>
+                <h2 class="text-4xl md:text-5xl font-black mt-2" style="color:var(--verde-oscuro);">Nuestros Servicios</h2>
+                <p class="text-gray-600 text-lg mt-4 max-w-2xl mx-auto">
+                    Acompañamiento integral para que encuentres claridad, construyas tu camino y alcances lo que realmente importa.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <!-- Servicio 1 -->
+                <div class="service-card bg-white rounded-2xl p-8 fade-in">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center text-2xl mb-5" style="background-color: rgba(27,67,50,0.08);">👤</div>
+                    <h3 class="text-2xl font-bold mb-3" style="color:var(--verde-oscuro);">Orientación en Propósito y Proyecto de Vida</h3>
+                    <p class="text-gray-600 leading-relaxed mb-5">
+                        Proceso profundo y personalizado para identificar tu propósito de vida y diseñar un plan concreto para materializarlo. Trabajamos contigo desde los 15 años en adelante, sin límite de edad.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><span style="color:var(--verde-claro);">✓</span> Sesiones individuales presenciales y virtuales</li>
+                        <li class="flex items-center gap-2"><span style="color:var(--verde-claro);">✓</span> Herramientas de PNL para cambio profundo</li>
+                        <li class="flex items-center gap-2"><span style="color:var(--verde-claro);">✓</span> Plan de vida estructurado y accionable</li>
+                    </ul>
+                    <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20orientaci%C3%B3n%20en%20prop%C3%B3sito%20de%20vida." class="mt-6 inline-block text-sm font-semibold" style="color:var(--dorado);">Solicitar información →</a>
+                </div>
+
+                <!-- Servicio 2 -->
+                <a href="https://dpvp.caminosdelser.co" class="service-card bg-white rounded-2xl p-8 fade-in block hover:no-underline">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center text-2xl mb-5" style="background-color: rgba(27,67,50,0.08);">💞</div>
+                    <h3 class="text-2xl font-bold mb-3" style="color:var(--verde-oscuro);">Atención a Parejas</h3>
+                    <p class="text-gray-600 leading-relaxed mb-5">
+                        Acompañamos a parejas en el proceso de alinear sus propósitos individuales y construir proyectos de vida conjuntos que fortalezcan la relación y les permitan crecer en armonía.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><span style="color:var(--verde-claro);">✓</span> Comunicación asertiva y resolución de conflictos</li>
+                        <li class="flex items-center gap-2"><span style="color:var(--verde-claro);">✓</span> Construcción del proyecto de vida en pareja</li>
+                        <li class="flex items-center gap-2"><span style="color:var(--verde-claro);">✓</span> Fortalecimiento del vínculo emocional</li>
+                    </ul>
+                    <span class="mt-6 inline-block text-sm font-semibold" style="color:var(--dorado);">Ver programa DPVP →</span>
+                </a>
+
+                <!-- Servicio 3 -->
+                <div class="service-card bg-white rounded-2xl p-8 fade-in">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center text-2xl mb-5" style="background-color: rgba(27,67,50,0.08);">🏢</div>
+                    <h3 class="text-2xl font-bold mb-3" style="color:var(--verde-oscuro);">Talleres para Empresas e Instituciones</h3>
+                    <p class="text-gray-600 leading-relaxed mb-5">
+                        Diseñamos e impartimos talleres personalizados sobre propósito, proyecto de vida, PNL, liderazgo y gestión del cambio, adaptados a las necesidades específicas de cada organización.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><span style="color:var(--verde-claro);">✓</span> Talleres para equipos de trabajo y directivos</li>
+                        <li class="flex items-center gap-2"><span style="color:var(--verde-claro);">✓</span> Programas para instituciones educativas</li>
+                        <li class="flex items-center gap-2"><span style="color:var(--verde-claro);">✓</span> Formatos presenciales y virtuales</li>
+                    </ul>
+                    <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20talleres%20para%20empresas." class="mt-6 inline-block text-sm font-semibold" style="color:var(--dorado);">Cotizar taller →</a>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="service-card bg-white rounded-2xl p-8 fade-in">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center text-2xl mb-5" style="background-color: rgba(27,67,50,0.08);">📊</div>
+                    <h3 class="text-2xl font-bold mb-3" style="color:var(--verde-oscuro);">Consultoría en Proyectos y Convocatorias</h3>
+                    <p class="text-gray-600 leading-relaxed mb-5">
+                        Orientación especializada en la formulación y ejecución de proyectos, incluyendo preparación para convocatorias nacionales e internacionales, con foco en gestión eficiente y resultados exitosos.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><span style="color:var(--verde-claro);">✓</span> Formulación de proyectos sociales y educativos</li>
+                        <li class="flex items-center gap-2"><span style="color:var(--verde-claro);">✓</span> Preparación para convocatorias</li>
+                        <li class="flex items-center gap-2"><span style="color:var(--verde-claro);">✓</span> Acompañamiento en ejecución y seguimiento</li>
+                    </ul>
+                    <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20consultor%C3%ADa%20en%20proyectos." class="mt-6 inline-block text-sm font-semibold" style="color:var(--dorado);">Solicitar consultoría →</a>
+                </div>
+
+            </div>
+
+            <!-- Cursos -->
+            <div class="mt-8 bg-white rounded-2xl p-8 fade-in" style="border-top: 4px solid var(--dorado);">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <div class="text-3xl mb-2">🎓</div>
+                        <h3 class="text-2xl font-bold" style="color:var(--verde-oscuro);">Cursos y Programas Online</h3>
+                        <p class="text-gray-600 mt-2">Potencia tus habilidades con nuestros programas especializados para profesionales y público general.</p>
                     </div>
-                    <div class="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
-                        <div class="text-4xl text-[#0077B6] mb-4">📊</div> <!-- Unicode icon -->
-                        <h3 class="font-bold text-xl mb-2">Consultoría en Proyectos y Convocatorias</h3>
-                        <p class="text-gray-700">
-                            Ofrezco consultoría especializada en la formulación y ejecución de proyectos, incluyendo la preparación para convocatorias nacionales e internacionales, asegurando una gestión eficiente y resultados exitosos.
-                        </p>
+                    <a href="psicologos4.0.html" class="btn-primary whitespace-nowrap">
+                        Ver todos los cursos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         PROCESO / CÓMO TRABAJAMOS
+    ═══════════════════════════════════════ -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-5xl text-center">
+            <span class="text-sm font-semibold tracking-widest uppercase" style="color:var(--verde-claro);">Nuestro método</span>
+            <h2 class="text-4xl font-black mt-2 mb-14" style="color:var(--verde-oscuro);">¿Cómo trabajamos?</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="fade-in">
+                    <div class="w-16 h-16 rounded-full text-white text-xl font-black flex items-center justify-center mx-auto mb-4 bg-gradient-cds">1</div>
+                    <h3 class="font-bold text-lg mb-2" style="color:var(--verde-oscuro);">Escucha profunda</h3>
+                    <p class="text-gray-500 text-sm">Primera sesión de exploración para entender tu historia, tus bloqueos y tus aspiraciones.</p>
+                </div>
+                <div class="fade-in">
+                    <div class="w-16 h-16 rounded-full text-white text-xl font-black flex items-center justify-center mx-auto mb-4 bg-gradient-cds">2</div>
+                    <h3 class="font-bold text-lg mb-2" style="color:var(--verde-oscuro);">Diagnóstico y mapa</h3>
+                    <p class="text-gray-500 text-sm">Identificamos tus recursos, talentos y el propósito que ya habita en ti, listo para emerger.</p>
+                </div>
+                <div class="fade-in">
+                    <div class="w-16 h-16 rounded-full text-white text-xl font-black flex items-center justify-center mx-auto mb-4 bg-gradient-cds">3</div>
+                    <h3 class="font-bold text-lg mb-2" style="color:var(--verde-oscuro);">Plan de acción</h3>
+                    <p class="text-gray-500 text-sm">Diseñamos juntos un proyecto de vida concreto, con metas claras y pasos realizables.</p>
+                </div>
+                <div class="fade-in">
+                    <div class="w-16 h-16 rounded-full text-white text-xl font-black flex items-center justify-center mx-auto mb-4 bg-gradient-cds">4</div>
+                    <h3 class="font-bold text-lg mb-2" style="color:var(--verde-oscuro);">Acompañamiento</h3>
+                    <p class="text-gray-500 text-sm">Te apoyamos en el camino, celebrando avances y ajustando el rumbo cuando sea necesario.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         TESTIMONIOS
+    ═══════════════════════════════════════ -->
+    <section id="testimonios" class="py-20" style="background-color: var(--crema);">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-14">
+                <span class="text-sm font-semibold tracking-widest uppercase" style="color:var(--verde-claro);">Lo que dicen de nosotros</span>
+                <h2 class="text-4xl font-black mt-2" style="color:var(--verde-oscuro);">Historias de Transformación</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card rounded-2xl p-7 fade-in">
+                    <div class="text-3xl mb-4" style="color:var(--dorado);">"</div>
+                    <p class="text-gray-600 leading-relaxed mb-6 italic">
+                        "Llegué sin saber qué quería hacer con mi vida a los 35 años. Después de meses de trabajo con Jorge, tengo claridad total sobre mi propósito y ya estoy ejecutando mi proyecto de vida. Ha sido el mejor proceso que he vivido."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background:var(--verde-medio);">AM</div>
+                        <div>
+                            <p class="font-semibold text-sm" style="color:var(--verde-oscuro);">Andrea M.</p>
+                            <p class="text-xs text-gray-400">Diseñadora · Medellín</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card rounded-2xl p-7 fade-in">
+                    <div class="text-3xl mb-4" style="color:var(--dorado);">"</div>
+                    <p class="text-gray-600 leading-relaxed mb-6 italic">
+                        "El taller de propósito de vida que dieron en nuestra empresa cambió el ambiente laboral completamente. El equipo está más motivado, comprometido y alineado. 100% recomendado para cualquier organización."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background:var(--verde-medio);">CR</div>
+                        <div>
+                            <p class="font-semibold text-sm" style="color:var(--verde-oscuro);">Carlos R.</p>
+                            <p class="text-xs text-gray-400">Gerente de RRHH · Bogotá</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card rounded-2xl p-7 fade-in">
+                    <div class="text-3xl mb-4" style="color:var(--dorado);">"</div>
+                    <p class="text-gray-600 leading-relaxed mb-6 italic">
+                        "Mi pareja y yo estábamos en crisis total. El proceso con Jorge nos ayudó a reencontrarnos, construir un proyecto común y hoy tenemos una relación más profunda y consciente que nunca antes habíamos tenido."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background:var(--verde-medio);">LP</div>
+                        <div>
+                            <p class="font-semibold text-sm" style="color:var(--verde-oscuro);">Laura & Pedro</p>
+                            <p class="text-xs text-gray-400">Pareja · Cali</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="cursos" class="py-16 bg-gray-100"> <!-- Nueva sección para Cursos -->
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-gradient bg-gradient-blue">Mis Cursos y Programas</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-                    Potencia tus habilidades y actualiza tu práctica profesional con mis programas especializados.
-                </p>
-                <a href="psicologos4.0.html" class="bg-gradient-blue text-white font-bold py-3 px-8 rounded-full text-lg hover:shadow-xl transition transform hover:scale-105">
-                    Explora mis Cursos
-                </a>
-            </div>
-        </section>
-
-        <section id="contacto" class="py-16 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient bg-gradient-blue">¡Conecta Conmigo!</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-                    Estoy aquí para apoyarte. Contáctame para agendar una sesión o para explorar cómo mis servicios pueden beneficiarte.
-                </p>
-                <a href="https://wa.me/573233796547?text=Hola%20Jorge%2C%20me%20gustar%C3%ADa%20agendar%20una%20sesi%C3%B3n%20o%20saber%20m%C3%A1s%20sobre%20tus%20servicios." class="bg-gradient-blue text-white font-bold py-3 px-8 rounded-full text-lg hover:shadow-xl transition transform hover:scale-105">
-                    Enviar Mensaje por WhatsApp
-                </a>
-                <p class="text-sm text-gray-500 mt-4">                    
-                </p>
-            </div>
-        </section>
-
-        <section id="red-profesionales" class="py-16 bg-gray-100">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-gradient bg-gradient-blue">Mi Red de Profesionales</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-                    Estos colegas hacen parte de mi red de apoyo, con los que trabajamos interdisciplinarmente cuando se requiera.
-                </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
-                    <!-- Colega 1 -->
-                    <div class="flex flex-col items-center">
-                        <a href="https://www.instagram.com/villegasmg" target="_blank" class="block w-36 h-36 rounded-full overflow-hidden border-4 border-[#00B4D8] hover:border-[#0077B6] transition transform hover:scale-105">
-                            <img src="marce.jpg" alt="Foto de Marcela Villegas" class="w-full h-full object-cover">
-                        </a>
-                        <p class="mt-4 font-bold text-gray-700">Marcela Villegas</p>
-                        <p class="text-sm text-gray-500">@villegasmg</p>
+    <!-- ═══════════════════════════════════════
+         FACILITADOR PRINCIPAL
+    ═══════════════════════════════════════ -->
+    <section class="py-20 section-dark">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in order-2 md:order-1">
+                    <span class="text-sm font-semibold tracking-widest uppercase" style="color:var(--verde-claro);">Facilitador principal</span>
+                    <h2 class="text-4xl md:text-5xl font-black mt-2 mb-6 text-white">Jorge Arango<br><span style="color:var(--dorado);">Castaño</span></h2>
+                    <div class="space-y-4 text-gray-300 text-lg leading-relaxed">
+                        <p>Psicólogo de corriente humanista-existencial con más de 9 años acompañando procesos de transformación personal. Su enfoque integra la profundidad del ser con herramientas prácticas para la acción.</p>
+                        <p>Certificado en Programación Neurolingüística (PNL) con múltiples niveles de formación, y Magíster en Dirección y Gestión de Proyectos.</p>
+                        <p>Docente universitario desde 2011, lo que le permite transmitir conceptos complejos de forma clara, empática y efectiva.</p>
                     </div>
-                    <!-- Colega 2 -->
-                    <div class="flex flex-col items-center">
-                        <a href="https://www.instagram.com/psi.marthabenitezb" target="_blank" class="block w-36 h-36 rounded-full overflow-hidden border-4 border-[#00B4D8] hover:border-[#0077B6] transition transform hover:scale-105">
-                            <img src="martha.jpg" alt="Foto de Martha Benitez" class="w-full h-full object-cover">
-                        </a>
-                        <p class="mt-4 font-bold text-gray-700">Martha Benitez</p>
-                        <p class="text-sm text-gray-500">@psi.marthabenitezb</p>
+                    <div class="flex flex-wrap gap-3 mt-8">
+                        <span class="px-4 py-2 rounded-full text-sm font-medium text-white" style="background:rgba(82,183,136,0.2); border: 1px solid var(--verde-claro);">Psicólogo Humanista</span>
+                        <span class="px-4 py-2 rounded-full text-sm font-medium text-white" style="background:rgba(82,183,136,0.2); border: 1px solid var(--verde-claro);">Certificado en PNL</span>
+                        <span class="px-4 py-2 rounded-full text-sm font-medium text-white" style="background:rgba(82,183,136,0.2); border: 1px solid var(--verde-claro);">Mg. Gestión de Proyectos</span>
+                        <span class="px-4 py-2 rounded-full text-sm font-medium text-white" style="background:rgba(82,183,136,0.2); border: 1px solid var(--verde-claro);">Docente Universitario</span>
                     </div>
-                    <!-- Colega 3 -->
-                    <div class="flex flex-col items-center">
-                        <a href="https://www.instagram.com/johamoreno_sexologa" target="_blank" class="block w-36 h-36 rounded-full overflow-hidden border-4 border-[#00B4D8] hover:border-[#0077B6] transition transform hover:scale-105">
-                            <img src="joha.jpg" alt="Foto de Johana Moreno" class="w-full h-full object-cover">
+                    <div class="mt-8">
+                        <a href="jorge-arango.html" class="btn-secondary">
+                            Conoce más sobre Jorge →
                         </a>
-                        <p class="mt-4 font-bold text-gray-700">Johana Moreno</p>
-                        <p class="text-sm text-gray-500">@johamoreno_sexologa</p>
-                    </div>
-                    <!-- Colega 4 -->
-                    <div class="flex flex-col items-center">
-                        <a href="https://www.instagram.com/claurece" target="_blank" class="block w-36 h-36 rounded-full overflow-hidden border-4 border-[#00B4D8] hover:border-[#0077B6] transition transform hover:scale-105">
-                            <img src="clau.jpg" alt="Foto de Claudia Reyes" class="w-full h-full object-cover">
-                        </a>
-                        <p class="mt-4 font-bold text-gray-700">Claudia Reyes</p>
-                        <p class="text-sm text-gray-500">@claurece</p>
-                    </div>
-                    <!-- Colega 5 -->
-                    <div class="flex flex-col items-center">
-                        <a href="https://www.instagram.com/victorrivera.5" target="_blank" class="block w-36 h-36 rounded-full overflow-hidden border-4 border-[#00B4D8] hover:border-[#0077B6] transition transform hover:scale-105">
-                            <img src="vic.jpg" alt="Foto de Victor Rivera" class="w-full h-full object-cover">
-                        </a>
-                        <p class="mt-4 font-bold text-gray-700">Victor Rivera</p>
-                        <p class="text-sm text-gray-500">@victorrivera.5</p>
-                    </div>
-                     <!-- Colega 6 -->
-                    <div class="flex flex-col items-center">
-                        <a href="https://www.instagram.com/profesormackenzie" target="_blank" class="block w-36 h-36 rounded-full overflow-hidden border-4 border-[#00B4D8] hover:border-[#0077B6] transition transform hover:scale-105">
-                            <img src="steven.jpg" alt="Foto de Steven Mackenzie" class="w-full h-full object-cover">
-                        </a>
-                        <p class="mt-4 font-bold text-gray-700">Steven Mackenzie</p>
-                        <p class="text-sm text-gray-500">@profesormackenzie</p>
                     </div>
                 </div>
+                <div class="fade-in order-1 md:order-2 text-center">
+                    <img src="jac2.jpg" alt="Jorge Arango Castaño" class="rounded-2xl w-full max-w-md mx-auto shadow-2xl" onerror="this.src='jac.png'">
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         RED DE PROFESIONALES
+    ═══════════════════════════════════════ -->
+    <section id="equipo" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-6xl text-center">
+            <span class="text-sm font-semibold tracking-widest uppercase" style="color:var(--verde-claro);">Apoyo interdisciplinario</span>
+            <h2 class="text-4xl font-black mt-2 mb-4" style="color:var(--verde-oscuro);">Nuestra Red de Profesionales</h2>
+            <p class="text-gray-500 text-lg max-w-2xl mx-auto mb-14">
+                Cuando el proceso lo requiere, contamos con un equipo interdisciplinario de especialistas que garantizan una atención integral.
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
+                <div class="flex flex-col items-center fade-in">
+                    <a href="https://www.instagram.com/villegasmg" target="_blank" class="team-img-wrapper">
+                        <img src="marce.jpg" alt="Marcela Villegas" class="w-full h-full object-cover">
+                    </a>
+                    <p class="mt-3 font-bold text-sm" style="color:var(--verde-oscuro);">Marcela Villegas</p>
+                    <p class="text-xs text-gray-400">@villegasmg</p>
+                </div>
+                <div class="flex flex-col items-center fade-in">
+                    <a href="https://www.instagram.com/psi.marthabenitezb" target="_blank" class="team-img-wrapper">
+                        <img src="martha.jpg" alt="Martha Benitez" class="w-full h-full object-cover">
+                    </a>
+                    <p class="mt-3 font-bold text-sm" style="color:var(--verde-oscuro);">Martha Benitez</p>
+                    <p class="text-xs text-gray-400">@psi.marthabenitezb</p>
+                </div>
+                <div class="flex flex-col items-center fade-in">
+                    <a href="https://www.instagram.com/johamoreno_sexologa" target="_blank" class="team-img-wrapper">
+                        <img src="joha.jpg" alt="Johana Moreno" class="w-full h-full object-cover">
+                    </a>
+                    <p class="mt-3 font-bold text-sm" style="color:var(--verde-oscuro);">Johana Moreno</p>
+                    <p class="text-xs text-gray-400">@johamoreno_sexologa</p>
+                </div>
+                <div class="flex flex-col items-center fade-in">
+                    <a href="https://www.instagram.com/claurece" target="_blank" class="team-img-wrapper">
+                        <img src="clau.jpg" alt="Claudia Reyes" class="w-full h-full object-cover">
+                    </a>
+                    <p class="mt-3 font-bold text-sm" style="color:var(--verde-oscuro);">Claudia Reyes</p>
+                    <p class="text-xs text-gray-400">@claurece</p>
+                </div>
+                <div class="flex flex-col items-center fade-in">
+                    <a href="https://www.instagram.com/victorrivera.5" target="_blank" class="team-img-wrapper">
+                        <img src="vic.jpg" alt="Victor Rivera" class="w-full h-full object-cover">
+                    </a>
+                    <p class="mt-3 font-bold text-sm" style="color:var(--verde-oscuro);">Victor Rivera</p>
+                    <p class="text-xs text-gray-400">@victorrivera.5</p>
+                </div>
+                <div class="flex flex-col items-center fade-in">
+                    <a href="https://www.instagram.com/profesormackenzie" target="_blank" class="team-img-wrapper">
+                        <img src="steven.jpg" alt="Steven Mackenzie" class="w-full h-full object-cover">
+                    </a>
+                    <p class="mt-3 font-bold text-sm" style="color:var(--verde-oscuro);">Steven Mackenzie</p>
+                    <p class="text-xs text-gray-400">@profesormackenzie</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CTA PRINCIPAL
+    ═══════════════════════════════════════ -->
+    <section id="contacto" class="py-24 bg-gradient-cds text-white text-center">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <span class="text-sm font-semibold tracking-widest uppercase" style="color:var(--dorado-claro);">El momento es ahora</span>
+            <h2 class="text-5xl font-black mt-2 mb-6">Tu camino empieza<br><span style="color:var(--dorado);">con un primer paso.</span></h2>
+            <p class="text-gray-200 text-xl mb-10 leading-relaxed">
+                Agenda tu primera sesión hoy y descubre qué camino te está esperando. Sin compromisos, sin presiones — solo una conversación que puede cambiarlo todo.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20agendar%20mi%20primera%20sesi%C3%B3n%20en%20Caminos%20del%20Ser." class="btn-primary text-lg">
+                    <i class="fab fa-whatsapp mr-2"></i>Agenda por WhatsApp
+                </a>
+                <a href="https://cinformado.caminosdelser.co" class="btn-secondary text-lg">
+                    Explorar contenidos gratuitos
+                </a>
+            </div>
+            <p class="text-gray-400 text-sm mt-6">
+                📍 Atención presencial y virtual · Colombia y el mundo
+            </p>
+        </div>
+    </section>
+
     </main>
 
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-4">Jorge Arango Castaño</h2>
-            <p class="mb-6">Tu guía para una vida con propósito y proyectos que transforman.</p>
-            <div class="flex justify-center space-x-6 mt-8">
-               <a href="https://www.instagram.com/caminosdelser85" target="_blank" class="hover:opacity-75 transition">
-                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="h-8 w-8 rounded-full">
-                </a>
-                <a href="https://www.linkedin.com/in/jorge-arango-casta%C3%B1o-542a1615/" target="_blank" class="hover:opacity-75 transition">
-                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="h-8 w-8 rounded-full">
-                </a>
-                 <a href="https://www.facebook.com/images/fb_icon_325x325.png" alt="Facebook" class="hover:opacity-75 transition" target="_blank">
-                    <img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="Facebook" class="h-8 w-8 rounded-full">
-                </a>
+    <!-- ═══════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════ -->
+    <footer class="py-12" style="background-color: #0f1f16; color: #d1d5db;">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid md:grid-cols-3 gap-10 mb-10">
+                <div>
+                    <img src="logoprincipal.png" alt="Caminos del Ser" class="h-12 mb-4">
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Acompañamiento psicológico humanista-existencial para descubrir tu propósito y construir la vida que mereces.
+                    </p>
+                    <p class="text-xs text-gray-500 mt-4">Una marca <strong class="text-gray-400">Emcotic</strong></p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Servicios</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#servicios" class="hover:text-white transition">Propósito y Proyecto de Vida</a></li>
+                        <li><a href="https://dpvp.caminosdelser.co" class="hover:text-white transition">Atención a Parejas (DPVP)</a></li>
+                        <li><a href="#servicios" class="hover:text-white transition">Talleres Empresariales</a></li>
+                        <li><a href="#servicios" class="hover:text-white transition">Consultoría en Proyectos</a></li>
+                        <li><a href="psicologos4.0.html" class="hover:text-white transition">Cursos Online</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Contáctanos</h4>
+                    <p class="text-sm text-gray-400 mb-4">¿Tienes preguntas? Estamos para ayudarte.</p>
+                    <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Caminos%20del%20Ser." class="inline-flex items-center gap-2 text-sm font-semibold" style="color:var(--dorado);">
+                        <i class="fab fa-whatsapp text-lg"></i> +57 323 379 6547
+                    </a>
+                    <div class="flex gap-4 mt-6">
+                        <a href="https://www.instagram.com/caminosdelser85" target="_blank" class="text-gray-400 hover:text-white transition text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/jorge-arango-casta%C3%B1o-542a1615/" target="_blank" class="text-gray-400 hover:text-white transition text-xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://cinformado.caminosdelser.co" target="_blank" class="text-gray-400 hover:text-white transition text-xl">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <p class="mt-8 text-gray-400">
-                &copy; 2025 Jorge Arango Castaño - Caminos del Ser. Todos los derechos reservados.
-                <a href="politicadatos.html" class="text-[#00B4D8] hover:underline ml-2">Política de Protección de Datos</a>
-            </p>
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+                <p>&copy; 2025 Caminos del Ser · Emcotic. Todos los derechos reservados.</p>
+                <a href="politicadatos.html" class="hover:text-white transition" style="color: var(--dorado);">Política de Protección de Datos</a>
+            </div>
         </div>
     </footer>
 
+    <!-- WhatsApp flotante -->
+    <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Caminos%20del%20Ser." class="whatsapp-float" target="_blank" aria-label="Chatea con nosotros">
+        <i class="fab fa-whatsapp text-white text-2xl"></i>
+    </a>
+
     <!-- Cookie Banner -->
-    <div id="cookieBanner" class="cookie-banner">
-        <p>Este sitio web utiliza cookies para mejorar tu experiencia. Al continuar navegando, aceptas el uso de estas cookies. Para más información, consulta nuestra <a href="politicadatos.html" class="text-[#00B4D8] hover:underline font-semibold">Política de Protección de Datos</a>.</p>
-        <button id="acceptCookies">Aceptar Cookies</button>
+    <div id="cookieBanner">
+        <p style="margin-bottom:0; max-width:700px;">Este sitio utiliza cookies para mejorar tu experiencia. Al continuar navegando aceptas su uso. <a href="politicadatos.html" style="color:var(--dorado); text-decoration:underline;">Más información</a>.</p>
+        <button id="acceptCookies" style="background:var(--dorado); color:var(--verde-oscuro); font-weight:700; padding:0.5rem 1.5rem; border-radius:50px; margin-top:0.5rem; white-space:nowrap; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+            Aceptar
+        </button>
     </div>
 
     <script>
-        // Función genérica para alternar el menú desplegable (usada tanto en escritorio como en móvil)
-        function toggleDropdown(buttonId, menuId) {
-            const button = document.getElementById(buttonId);
-            const menu = document.getElementById(menuId);
-            const chevron = button ? button.querySelector('.dropdown-chevron') : null;
+        // Mobile menu
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
 
-            if (!button || !menu) return;
-
-            // Maneja el evento de clic en el botón
-            button.addEventListener('click', function(event) {
-                event.stopPropagation(); // Evita que el clic se propague al documento
-                
-                const isVisible = menu.classList.contains('opacity-100');
-                
-                // Cierra cualquier otro menú abierto (opcional, pero buena práctica)
-                // Aquí cerramos solo el otro menú de navegación para simplificar.
-                if (buttonId === 'dropdownBtnDesktop' && document.getElementById('dropdownMenuMobile').classList.contains('opacity-100')) {
-                    toggleDropdown('dropdownBtnMobile', 'dropdownMenuMobile');
-                } else if (buttonId === 'dropdownBtnMobile' && document.getElementById('dropdownMenuDesktop').classList.contains('opacity-100')) {
-                    // Cierra el escritorio si el móvil se abre, aunque en teoría no pasa en la misma vista
-                    const desktopMenu = document.getElementById('dropdownMenuDesktop');
-                    const desktopChevron = document.getElementById('dropdownBtnDesktop').querySelector('.dropdown-chevron');
-                    desktopMenu.classList.remove('opacity-100', 'visible', 'scale-100');
-                    desktopMenu.classList.add('opacity-0', 'invisible', 'scale-95');
-                    if (desktopChevron) desktopChevron.classList.remove('rotate-180');
-                }
-
-                if (isVisible) {
-                    // Cerrar menú
-                    menu.classList.remove('opacity-100', 'visible', 'scale-100');
-                    menu.classList.add('opacity-0', 'invisible', 'scale-95');
-                    if (chevron) chevron.classList.remove('rotate-180');
-                } else {
-                    // Abrir menú
-                    menu.classList.add('opacity-100', 'visible', 'scale-100');
-                    menu.classList.remove('opacity-0', 'invisible', 'scale-95');
-                    if (chevron) chevron.classList.add('rotate-180');
-                }
-            });
-
-            // Cerrar el menú si se hace clic fuera
-            document.addEventListener('click', function(event) {
-                const parent = button.closest('.relative');
-                if (!event.target.closest('.relative') || (parent && !parent.contains(event.target))) {
-                    if (menu.classList.contains('opacity-100')) {
-                        menu.classList.remove('opacity-100', 'visible', 'scale-100');
-                        menu.classList.add('opacity-0', 'invisible', 'scale-95');
-                        if (chevron) chevron.classList.remove('rotate-180');
-                    }
-                }
-            });
-        }
-
+        // Cookie banner
         document.addEventListener('DOMContentLoaded', function() {
-            const cookieBanner = document.getElementById('cookieBanner');
-            const acceptCookiesBtn = document.getElementById('acceptCookies');
-            
-            // --- Lógica del Banner de Cookies ---
-            if (localStorage.getItem('cookiesAccepted') === 'true') {
-                cookieBanner.classList.add('hidden');
+            const banner = document.getElementById('cookieBanner');
+            if (localStorage.getItem('cds_cookies') === 'true') {
+                banner.style.display = 'none';
             }
-            acceptCookiesBtn.addEventListener('click', function() {
-                localStorage.setItem('cookiesAccepted', 'true');
-                cookieBanner.classList.add('hidden');
+            document.getElementById('acceptCookies').addEventListener('click', function() {
+                localStorage.setItem('cds_cookies', 'true');
+                banner.style.display = 'none';
             });
+        });
 
-            // --- Inicialización del Desplegable de Escritorio ---
-            // Reemplazamos la lógica CSS :hover por la lógica JS de click
-            toggleDropdown('dropdownBtnDesktop', 'dropdownMenuDesktop');
+        // Fade-in on scroll
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-            // --- Inicialización del Desplegable Móvil ---
-            toggleDropdown('dropdownBtnMobile', 'dropdownMenuMobile');
+        document.querySelectorAll('.fade-in').forEach(function(el) {
+            observer.observe(el);
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobileMenu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
         });
     </script>
 </body>
