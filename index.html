@@ -8,63 +8,64 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
-            --navy:    #0D2137;
-            --navy-md: #1A3A5C;
-            --teal:    #2ABFBF;
-            --teal-lt: #E6F9F9;
-            --blanco:  #FFFFFF;
-            --gris-bg: #F5F7FA;
-            --gris-ln: #E2E8F0;
-            --texto:   #1E293B;
-            --texto-sm:#64748B;
+            --bosque:   #2C4A3E;   /* verde bosque profundo — anclaje, confianza */
+            --salvia:   #5BA08A;   /* salvia medio — calma, crecimiento */
+            --salvia-lt:#EAF4F1;   /* salvia muy claro — fondos suaves */
+            --terra:    #C4845A;   /* terracota — calidez humana, acento */
+            --terra-lt: #FAF0E8;   /* terracota muy claro */
+            --crema:    #FAF8F5;   /* blanco cálido — fondo principal */
+            --crema-md: #F0EDE8;   /* crema medio — fondos alternos */
+            --linea:    #DDD8D0;   /* líneas y bordes cálidos */
+            --texto:    #2C3A2E;   /* verde oscuro cálido — texto principal */
+            --texto-sm: #6B7A6E;   /* texto secundario */
         }
 
-        body { font-family: 'Inter', sans-serif; color: var(--texto); background: var(--blanco); }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--texto); background: var(--crema); }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
 
         /* Botones */
         .btn-primary {
-            background: var(--navy);
+            background: var(--bosque);
             color: #fff;
             font-weight: 600;
             padding: 0.875rem 2rem;
             border-radius: 50px;
             display: inline-block;
             transition: background 0.25s, transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 16px rgba(13,33,55,0.18);
+            box-shadow: 0 4px 16px rgba(44,74,62,0.22);
         }
-        .btn-primary:hover { background: var(--navy-md); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,33,55,0.22); }
+        .btn-primary:hover { background: #1e3529; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(44,74,62,0.28); }
 
         .btn-outline {
-            border: 2px solid var(--navy);
-            color: var(--navy);
+            border: 2px solid var(--bosque);
+            color: var(--bosque);
             font-weight: 600;
             padding: 0.75rem 1.75rem;
             border-radius: 50px;
             display: inline-block;
             transition: all 0.25s;
         }
-        .btn-outline:hover { background: var(--navy); color: #fff; transform: translateY(-2px); }
+        .btn-outline:hover { background: var(--bosque); color: #fff; transform: translateY(-2px); }
 
-        .btn-teal {
-            background: var(--teal);
+        .btn-terra {
+            background: var(--terra);
             color: #fff;
             font-weight: 600;
             padding: 0.875rem 2rem;
             border-radius: 50px;
             display: inline-block;
             transition: all 0.25s;
-            box-shadow: 0 4px 16px rgba(42,191,191,0.3);
+            box-shadow: 0 4px 16px rgba(196,132,90,0.3);
         }
-        .btn-teal:hover { filter: brightness(1.08); transform: translateY(-2px); }
+        .btn-terra:hover { filter: brightness(1.08); transform: translateY(-2px); }
 
         /* Nav */
-        .nav-link { color: var(--navy-md); font-weight: 500; transition: color 0.2s; font-size: 0.9rem; }
-        .nav-link:hover { color: var(--teal); }
+        .nav-link { color: var(--bosque); font-weight: 500; transition: color 0.2s; font-size: 0.9rem; }
+        .nav-link:hover { color: var(--salvia); }
 
         /* Badge */
         .badge {
@@ -78,9 +79,9 @@
             letter-spacing: 0.05em;
             text-transform: uppercase;
         }
-        .badge-teal  { background: var(--teal-lt); color: #0e9898; }
-        .badge-navy  { background: #EEF2F7; color: var(--navy-md); }
-        .badge-gray  { background: #F1F5F9; color: #475569; }
+        .badge-salvia { background: var(--salvia-lt); color: #3d7a65; }
+        .badge-terra  { background: var(--terra-lt); color: #9e5f35; }
+        .badge-gray   { background: var(--crema-md); color: var(--texto-sm); }
 
         /* Section label */
         .section-label {
@@ -88,14 +89,14 @@
             font-weight: 700;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: var(--teal);
+            color: var(--salvia);
             display: block;
         }
 
         /* Underline decorativa */
         .title-line {
             width: 44px; height: 3px;
-            background: var(--teal);
+            background: var(--terra);
             border-radius: 2px;
             margin: 0.65rem auto 0;
         }
@@ -103,54 +104,54 @@
 
         /* Tarjeta de producto */
         .product-card {
-            background: var(--blanco);
-            border: 1px solid var(--gris-ln);
-            border-top: 3px solid var(--teal);
-            border-radius: 1rem;
+            background: #fff;
+            border: 1px solid var(--linea);
+            border-top: 3px solid var(--salvia);
+            border-radius: 1.25rem;
             padding: 2rem;
             transition: transform 0.25s, box-shadow 0.25s;
         }
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 16px 40px rgba(13,33,55,0.09);
+            box-shadow: 0 16px 40px rgba(44,74,62,0.1);
         }
 
         /* Tarjeta de ruta */
         .route-card {
-            background: var(--blanco);
-            border: 1px solid var(--gris-ln);
-            border-radius: 1rem;
+            background: #fff;
+            border: 1px solid var(--linea);
+            border-radius: 1.25rem;
             padding: 2rem;
             transition: all 0.25s;
             cursor: default;
         }
         .route-card:hover {
-            border-color: var(--teal);
-            box-shadow: 0 8px 30px rgba(42,191,191,0.1);
+            border-color: var(--salvia);
+            box-shadow: 0 8px 30px rgba(91,160,138,0.12);
         }
 
         /* Tarjeta de servicio */
         .service-card {
-            background: var(--blanco);
-            border: 1px solid var(--gris-ln);
-            border-radius: 1rem;
+            background: #fff;
+            border: 1px solid var(--linea);
+            border-radius: 1.25rem;
             padding: 1.75rem;
             transition: transform 0.25s, box-shadow 0.25s;
         }
         .service-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(13,33,55,0.08);
+            box-shadow: 0 12px 32px rgba(44,74,62,0.09);
         }
 
-        /* Dot teal */
-        .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--teal); display: inline-block; flex-shrink: 0; }
+        /* Dot salvia */
+        .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--salvia); display: inline-block; flex-shrink: 0; }
 
         /* Stat */
         .stat-num {
-            font-family: 'Playfair Display', serif;
+            font-family: 'DM Serif Display', serif;
             font-size: 2.6rem;
-            font-weight: 900;
-            color: var(--navy);
+            font-weight: 400;
+            color: var(--bosque);
             line-height: 1;
         }
 
@@ -165,10 +166,10 @@
             width: 96px; height: 96px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--teal-lt);
+            border: 3px solid var(--salvia-lt);
             transition: border-color 0.25s, transform 0.25s;
         }
-        .team-img:hover { border-color: var(--teal); transform: scale(1.05); }
+        .team-img:hover { border-color: var(--salvia); transform: scale(1.05); }
 
         /* Reveal */
         .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
@@ -188,11 +189,11 @@
         /* Cookie */
         #cookieBanner {
             position: fixed; bottom: 0; left: 0; width: 100%;
-            background: var(--navy); color: #94a3b8;
+            background: var(--bosque); color: #b8cfc8;
             padding: 1rem 1.5rem;
             display: flex; flex-direction: column; align-items: center;
             text-align: center; font-size: 0.8rem; z-index: 8999;
-            box-shadow: 0 -3px 16px rgba(0,0,0,0.2); gap: 0.75rem;
+            box-shadow: 0 -3px 16px rgba(0,0,0,0.15); gap: 0.75rem;
         }
         @media(min-width:768px){
             #cookieBanner { flex-direction: row; justify-content: space-between; text-align: left; gap: 0; }
@@ -204,7 +205,7 @@
 <!-- ══════════════════════════════════════
      HEADER / NAVEGACIÓN
 ══════════════════════════════════════ -->
-<header class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+<header class="sticky top-0 z-50 shadow-sm" style="background:var(--crema); border-bottom: 1px solid var(--linea);">
     <nav class="container mx-auto px-6 py-3 flex justify-between items-center max-w-6xl">
         <a href="#inicio">
             <img src="logoprincipal.png" alt="Caminos del Ser" class="h-10">
@@ -217,7 +218,7 @@
             <a href="#formacion"  class="nav-link">Formación</a>
             <a href="#equipo"     class="nav-link">Equipo</a>
             <a href="#contacto"   class="nav-link">Contacto</a>
-            <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Caminos%20del%20Ser." class="btn-teal py-2 px-5 text-sm">
+            <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Caminos%20del%20Ser." class="btn-terra py-2 px-5 text-sm">
                 Contáctanos
             </a>
         </div>
@@ -228,13 +229,13 @@
         </button>
     </nav>
 
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-3">
+    <div id="mobileMenu" class="hidden md:hidden px-6 py-4 space-y-3" style="background:var(--crema); border-top: 1px solid var(--linea);">
         <a href="#nosotros"  class="block nav-link py-1">Nosotros</a>
         <a href="#productos" class="block nav-link py-1">Productos</a>
         <a href="#formacion" class="block nav-link py-1">Formación</a>
         <a href="#equipo"    class="block nav-link py-1">Equipo</a>
         <a href="#contacto"  class="block nav-link py-1">Contacto</a>
-        <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Caminos%20del%20Ser." class="btn-teal text-sm inline-block mt-2">
+        <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Caminos%20del%20Ser." class="btn-terra text-sm inline-block mt-2">
             Contáctanos
         </a>
     </div>
@@ -250,9 +251,9 @@
         <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="reveal">
                 <span class="section-label mb-3">Ecosistema de salud mental · Colombia</span>
-                <h1 class="text-4xl md:text-5xl font-black mt-1 mb-5 leading-tight" style="color:var(--navy);">
+                <h1 class="text-4xl md:text-5xl font-black mt-1 mb-5 leading-tight" style="color:var(--bosque);">
                     Donde la tecnología y<br>lo humano se encuentran<br>para transformar la<br>
-                    <span style="color:var(--teal);">salud mental.</span>
+                    <span style="color:var(--salvia);">salud mental.</span>
                 </h1>
                 <p class="text-lg text-gray-500 leading-relaxed mb-8 max-w-lg">
                     Herramientas de IA, programas especializados y una red de profesionales para el bienestar de personas, emprendedores y organizaciones.
@@ -270,7 +271,7 @@
         </div>
 
         <!-- Métricas -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-12 border-t border-gray-200 text-center">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-12 text-center" style="border-top: 1px solid var(--linea);">
             <div class="reveal">
                 <div class="stat-num">+9</div>
                 <p class="text-gray-500 text-sm mt-1 font-medium">Años de trayectoria</p>
@@ -294,11 +295,11 @@
 <!-- ══════════════════════════════════════
      QUIÉNES SOMOS
 ══════════════════════════════════════ -->
-<section id="nosotros" class="py-20 bg-white">
+<section id="nosotros" class="py-20" style="background:#fff;">
     <div class="container mx-auto px-6 max-w-5xl">
         <div class="text-center mb-12 reveal">
             <span class="section-label">Quiénes somos</span>
-            <h2 class="text-4xl font-black mt-2 mb-2" style="color:var(--navy);">No somos solo tecnología.<br>No somos solo psicólogos.</h2>
+            <h2 class="text-4xl font-black mt-2 mb-2" style="color:var(--bosque);">No somos solo tecnología.<br>No somos solo psicólogos.</h2>
             <div class="title-line"></div>
         </div>
 
@@ -312,19 +313,19 @@
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-            <div class="reveal" style="background:var(--gris-bg); border-radius:1rem; padding:1.75rem;">
+            <div class="reveal" style="background:var(--crema-md); border-radius:1.25rem; padding:1.75rem;">
                 <div class="text-3xl mb-3">🤖</div>
-                <h3 class="text-lg font-bold mb-2" style="color:var(--navy);">IA aplicada al bienestar</h3>
+                <h3 class="text-lg font-bold mb-2" style="color:var(--bosque);">IA aplicada al bienestar</h3>
                 <p class="text-gray-500 text-sm leading-relaxed">Construimos nuestras propias herramientas de diagnóstico e intervención. No adaptamos soluciones genéricas — las diseñamos desde cero para el contexto colombiano.</p>
             </div>
-            <div class="reveal" style="background:var(--gris-bg); border-radius:1rem; padding:1.75rem;">
+            <div class="reveal" style="background:var(--crema-md); border-radius:1.25rem; padding:1.75rem;">
                 <div class="text-3xl mb-3">🎓</div>
-                <h3 class="text-lg font-bold mb-2" style="color:var(--navy);">Formación especializada</h3>
+                <h3 class="text-lg font-bold mb-2" style="color:var(--bosque);">Formación especializada</h3>
                 <p class="text-gray-500 text-sm leading-relaxed">Programas para psicólogos, líderes y profesionales que quieren actualizar su práctica o fortalecer su bienestar con metodologías basadas en evidencia.</p>
             </div>
-            <div class="reveal" style="background:var(--gris-bg); border-radius:1rem; padding:1.75rem;">
+            <div class="reveal" style="background:var(--crema-md); border-radius:1.25rem; padding:1.75rem;">
                 <div class="text-3xl mb-3">🤝</div>
-                <h3 class="text-lg font-bold mb-2" style="color:var(--navy);">Red humana interdisciplinaria</h3>
+                <h3 class="text-lg font-bold mb-2" style="color:var(--bosque);">Red humana interdisciplinaria</h3>
                 <p class="text-gray-500 text-sm leading-relaxed">Cuando el proceso lo requiere, activamos una red de especialistas para garantizar una atención integral desde múltiples disciplinas.</p>
             </div>
         </div>
@@ -334,11 +335,11 @@
 <!-- ══════════════════════════════════════
      ¿PARA QUIÉN ES? — SELECTOR DE RUTA
 ══════════════════════════════════════ -->
-<section class="py-20" style="background:var(--gris-bg);">
+<section class="py-20" style="background:var(--crema-md);">
     <div class="container mx-auto px-6 max-w-5xl">
         <div class="text-center mb-12 reveal">
             <span class="section-label">Encuentra tu camino</span>
-            <h2 class="text-4xl font-black mt-2 mb-2" style="color:var(--navy);">¿Cuál es tu situación?</h2>
+            <h2 class="text-4xl font-black mt-2 mb-2" style="color:var(--bosque);">¿Cuál es tu situación?</h2>
             <div class="title-line"></div>
             <p class="text-gray-500 text-lg mt-4">Tenemos una solución diseñada para ti.</p>
         </div>
@@ -348,15 +349,15 @@
             <!-- Ruta 1 -->
             <div class="route-card reveal">
                 <div class="text-3xl mb-4">💼</div>
-                <h3 class="font-bold text-lg mb-3" style="color:var(--navy);">Soy emprendedor o líder independiente</h3>
+                <h3 class="font-bold text-lg mb-3" style="color:var(--bosque);">Soy emprendedor o líder independiente</h3>
                 <p class="text-gray-500 text-sm leading-relaxed mb-6">
                     Trabajas solo o lideras un equipo pequeño y necesitas entender cómo está tu salud mental para rendir mejor y tomar mejores decisiones.
                 </p>
                 <div class="border-t border-gray-100 pt-4">
                     <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Tu producto</p>
-                    <p class="font-bold text-sm mb-1" style="color:var(--navy);">DSME</p>
+                    <p class="font-bold text-sm mb-1" style="color:var(--bosque);">DSME</p>
                     <p class="text-xs text-gray-400 mb-4">Diagnóstico de Salud Mental del Emprendedor</p>
-                    <a href="#dsme" class="inline-flex items-center gap-1 text-sm font-semibold" style="color:var(--teal);">
+                    <a href="#dsme" class="inline-flex items-center gap-1 text-sm font-semibold" style="color:var(--salvia);">
                         Conocer DSME <i class="fas fa-arrow-right text-xs"></i>
                     </a>
                 </div>
@@ -365,15 +366,15 @@
             <!-- Ruta 2 -->
             <div class="route-card reveal">
                 <div class="text-3xl mb-4">🏢</div>
-                <h3 class="font-bold text-lg mb-3" style="color:var(--navy);">Represento una empresa u organización</h3>
+                <h3 class="font-bold text-lg mb-3" style="color:var(--bosque);">Represento una empresa u organización</h3>
                 <p class="text-gray-500 text-sm leading-relaxed mb-6">
                     Quieres medir y mejorar la salud mental de tu equipo, reducir el riesgo psicosocial y construir una cultura organizacional más sana y productiva.
                 </p>
                 <div class="border-t border-gray-100 pt-4">
                     <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Tus productos</p>
-                    <p class="font-bold text-sm mb-1" style="color:var(--navy);">AMELIA + Talleres empresariales</p>
+                    <p class="font-bold text-sm mb-1" style="color:var(--bosque);">AMELIA + Talleres empresariales</p>
                     <p class="text-xs text-gray-400 mb-4">Plataforma IA + Formación a la medida</p>
-                    <a href="#amelia" class="inline-flex items-center gap-1 text-sm font-semibold" style="color:var(--teal);">
+                    <a href="#amelia" class="inline-flex items-center gap-1 text-sm font-semibold" style="color:var(--salvia);">
                         Conocer soluciones para empresas <i class="fas fa-arrow-right text-xs"></i>
                     </a>
                 </div>
@@ -382,15 +383,15 @@
             <!-- Ruta 3 -->
             <div class="route-card reveal">
                 <div class="text-3xl mb-4">🧠</div>
-                <h3 class="font-bold text-lg mb-3" style="color:var(--navy);">Soy psicólogo o profesional de salud mental</h3>
+                <h3 class="font-bold text-lg mb-3" style="color:var(--bosque);">Soy psicólogo o profesional de salud mental</h3>
                 <p class="text-gray-500 text-sm leading-relaxed mb-6">
                     Quieres optimizar tu práctica clínica con tecnología, actualizar tus metodologías y acceder a formación especializada en el contexto colombiano.
                 </p>
                 <div class="border-t border-gray-100 pt-4">
                     <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Tus productos</p>
-                    <p class="font-bold text-sm mb-1" style="color:var(--navy);">Cinformado + Cursos especializados</p>
+                    <p class="font-bold text-sm mb-1" style="color:var(--bosque);">Cinformado + Cursos especializados</p>
                     <p class="text-xs text-gray-400 mb-4">SaaS clínico + Formación continua</p>
-                    <a href="#cinformado" class="inline-flex items-center gap-1 text-sm font-semibold" style="color:var(--teal);">
+                    <a href="#cinformado" class="inline-flex items-center gap-1 text-sm font-semibold" style="color:var(--salvia);">
                         Conocer herramientas para profesionales <i class="fas fa-arrow-right text-xs"></i>
                     </a>
                 </div>
@@ -403,11 +404,11 @@
 <!-- ══════════════════════════════════════
      PRODUCTOS — 3 HERRAMIENTAS IA
 ══════════════════════════════════════ -->
-<section id="productos" class="py-20 bg-white">
+<section id="productos" class="py-20" style="background:#fff;">
     <div class="container mx-auto px-6 max-w-6xl">
         <div class="text-center mb-14 reveal">
             <span class="section-label">Tecnología propia para la salud mental</span>
-            <h2 class="text-4xl font-black mt-2 mb-2" style="color:var(--navy);">Nuestros Productos</h2>
+            <h2 class="text-4xl font-black mt-2 mb-2" style="color:var(--bosque);">Nuestros Productos</h2>
             <div class="title-line"></div>
             <p class="text-gray-500 text-lg mt-5 max-w-2xl mx-auto">
                 Tres plataformas diseñadas y construidas por Emcotic, cada una para un momento y un actor diferente del mismo ecosistema.
@@ -420,11 +421,11 @@
             <div id="dsme" class="product-card reveal">
                 <div class="flex items-center gap-2 mb-3">
                     <span class="dot"></span>
-                    <span class="font-black text-2xl" style="color:var(--navy);">DSME</span>
+                    <span class="font-black text-2xl" style="color:var(--bosque);">DSME</span>
                 </div>
                 <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="badge badge-teal">IA</span>
-                    <span class="badge badge-navy">Para emprendedores</span>
+                    <span class="badge badge-salvia">IA</span>
+                    <span class="badge badge-terra">Para emprendedores</span>
                 </div>
                 <p class="text-gray-500 text-sm leading-relaxed mb-6">
                     Herramienta especializada para CEOs, fundadores y solopreneurs. Evalúa tu estado emocional, identifica niveles de burnout y ansiedad, y genera un plan de acción personalizado para fortalecer tu liderazgo y tu productividad.
@@ -441,11 +442,11 @@
             <div id="amelia" class="product-card reveal">
                 <div class="flex items-center gap-2 mb-3">
                     <span class="dot"></span>
-                    <span class="font-black text-2xl" style="color:var(--navy);">AMELIA</span>
+                    <span class="font-black text-2xl" style="color:var(--bosque);">AMELIA</span>
                 </div>
                 <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="badge badge-teal">IA</span>
-                    <span class="badge badge-navy">Para organizaciones</span>
+                    <span class="badge badge-salvia">IA</span>
+                    <span class="badge badge-terra">Para organizaciones</span>
                 </div>
                 <p class="text-gray-500 text-sm leading-relaxed mb-6">
                     Plataforma de diagnóstico para toda la empresa, desde el CEO hasta el personal operativo. Mide burnout, ansiedad y motivación a escala organizacional, entrega un índice consolidado de riesgo psicosocial y diseña el plan de intervención a la medida.
@@ -462,11 +463,11 @@
             <div id="cinformado" class="product-card reveal">
                 <div class="flex items-center gap-2 mb-3">
                     <span class="dot"></span>
-                    <span class="font-black text-2xl" style="color:var(--navy);">Cinformado</span>
+                    <span class="font-black text-2xl" style="color:var(--bosque);">Cinformado</span>
                 </div>
                 <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="badge badge-teal">Software</span>
-                    <span class="badge badge-navy">Para psicólogos</span>
+                    <span class="badge badge-salvia">Software</span>
+                    <span class="badge badge-terra">Para psicólogos</span>
                 </div>
                 <p class="text-gray-500 text-sm leading-relaxed mb-6">
                     Sistema de gestión clínica y profesional diseñado para psicólogos e instituciones de salud mental. Optimiza tu práctica con tecnología hecha para el contexto colombiano: historia clínica, agenda, seguimiento de pacientes y más.
@@ -475,7 +476,7 @@
                     <a href="https://cinformado.caminosdelser.co" target="_blank" class="btn-primary text-sm py-2 px-5 w-full text-center block">
                         Conocer Cinformado
                     </a>
-                    <a href="https://cinformado.caminosdelser.co" target="_blank" class="text-center text-xs block pt-1" style="color:var(--teal);">
+                    <a href="https://cinformado.caminosdelser.co" target="_blank" class="text-center text-xs block pt-1" style="color:var(--salvia);">
                         Ver funcionalidades →
                     </a>
                 </div>
@@ -488,11 +489,11 @@
 <!-- ══════════════════════════════════════
      SERVICIOS PROFESIONALES
 ══════════════════════════════════════ -->
-<section class="py-20" style="background:var(--gris-bg);">
+<section class="py-20" style="background:var(--crema-md);">
     <div class="container mx-auto px-6 max-w-5xl">
         <div class="text-center mb-12 reveal">
             <span class="section-label">El conocimiento humano</span>
-            <h2 class="text-4xl font-black mt-2 mb-2" style="color:var(--navy);">Más allá de la tecnología</h2>
+            <h2 class="text-4xl font-black mt-2 mb-2" style="color:var(--bosque);">Más allá de la tecnología</h2>
             <div class="title-line"></div>
             <p class="text-gray-500 text-lg mt-5 max-w-2xl mx-auto">
                 Nuestra red de profesionales diseña e imparte programas a la medida para empresas, instituciones y comunidades.
@@ -504,11 +505,11 @@
             <!-- Talleres -->
             <div class="service-card reveal">
                 <div class="text-3xl mb-4">🏛️</div>
-                <h3 class="font-bold text-lg mb-2" style="color:var(--navy);">Talleres para Empresas e Instituciones</h3>
+                <h3 class="font-bold text-lg mb-2" style="color:var(--bosque);">Talleres para Empresas e Instituciones</h3>
                 <p class="text-gray-500 text-sm leading-relaxed mb-6">
                     Diseñamos e impartimos talleres personalizados sobre salud mental, PNL, liderazgo, cohesión de equipos y gestión del cambio. Adaptados a las necesidades específicas de organizaciones y centros educativos, ejecutados por nuestra red de profesionales certificados.
                 </p>
-                <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20cotizar%20un%20taller%20para%20mi%20empresa%20o%20institución." class="inline-flex items-center gap-1 text-sm font-semibold" style="color:var(--teal);">
+                <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20cotizar%20un%20taller%20para%20mi%20empresa%20o%20institución." class="inline-flex items-center gap-1 text-sm font-semibold" style="color:var(--salvia);">
                     Cotizar taller <i class="fas fa-arrow-right text-xs"></i>
                 </a>
             </div>
@@ -516,11 +517,11 @@
             <!-- Investigaciones -->
             <div class="service-card reveal">
                 <div class="text-3xl mb-4">🔬</div>
-                <h3 class="font-bold text-lg mb-2" style="color:var(--navy);">Investigaciones Aplicadas</h3>
+                <h3 class="font-bold text-lg mb-2" style="color:var(--bosque);">Investigaciones Aplicadas</h3>
                 <p class="text-gray-500 text-sm leading-relaxed mb-6">
                     Tenemos la capacidad de diseñar y ejecutar investigaciones en salud mental y bienestar organizacional con rigor metodológico y aplicabilidad práctica. Para empresas, universidades e instituciones que necesitan evidencia para tomar mejores decisiones. En la medida en que vayamos desarrollando investigaciones, las iremos publicando aquí.
                 </p>
-                <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20consultar%20sobre%20investigaciones%20aplicadas." class="inline-flex items-center gap-1 text-sm font-semibold" style="color:var(--teal);">
+                <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20consultar%20sobre%20investigaciones%20aplicadas." class="inline-flex items-center gap-1 text-sm font-semibold" style="color:var(--salvia);">
                     Consultar disponibilidad <i class="fas fa-arrow-right text-xs"></i>
                 </a>
             </div>
@@ -528,11 +529,11 @@
             <!-- Publicaciones -->
             <div class="service-card reveal">
                 <div class="text-3xl mb-4">📄</div>
-                <h3 class="font-bold text-lg mb-2" style="color:var(--navy);">Publicaciones Especializadas</h3>
+                <h3 class="font-bold text-lg mb-2" style="color:var(--bosque);">Publicaciones Especializadas</h3>
                 <p class="text-gray-500 text-sm leading-relaxed mb-6">
                     Producimos contenido técnico, artículos y materiales de referencia en salud mental, psicología organizacional y bienestar. Disponibles para profesionales, instituciones académicas y equipos de RRHH. Iremos publicando los nuevos contenidos en la medida en que estén disponibles.
                 </p>
-                <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20saber%20más%20sobre%20las%20publicaciones%20de%20Caminos%20del%20Ser." class="inline-flex items-center gap-1 text-sm font-semibold" style="color:var(--teal);">
+                <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20saber%20más%20sobre%20las%20publicaciones%20de%20Caminos%20del%20Ser." class="inline-flex items-center gap-1 text-sm font-semibold" style="color:var(--salvia);">
                     Saber más <i class="fas fa-arrow-right text-xs"></i>
                 </a>
             </div>
@@ -544,40 +545,40 @@
 <!-- ══════════════════════════════════════
      CURSOS Y FORMACIÓN
 ══════════════════════════════════════ -->
-<section id="formacion" class="py-20 bg-white">
+<section id="formacion" class="py-20" style="background:#fff;">
     <div class="container mx-auto px-6 max-w-5xl">
         <div class="grid md:grid-cols-2 gap-14 items-center">
             <div class="reveal">
                 <span class="section-label">Formación continua</span>
-                <h2 class="text-4xl font-black mt-2 mb-2" style="color:var(--navy);">Cursos y Formación<br>para profesionales y personas</h2>
+                <h2 class="text-4xl font-black mt-2 mb-2" style="color:var(--bosque);">Cursos y Formación<br>para profesionales y personas</h2>
                 <div class="title-line title-line-left"></div>
                 <p class="text-gray-500 leading-relaxed mt-5 mb-5">
                     Programas diseñados para quienes quieren actualizar su práctica o crecer con herramientas concretas.
                 </p>
                 <ul class="space-y-3 text-sm text-gray-600 mb-8">
                     <li class="flex items-start gap-2">
-                        <span class="mt-0.5 font-bold" style="color:var(--teal);">✓</span>
+                        <span class="mt-0.5 font-bold" style="color:var(--salvia);">✓</span>
                         Psicólogos 4.0: tecnología e innovación para tu práctica clínica
                     </li>
                     <li class="flex items-start gap-2">
-                        <span class="mt-0.5 font-bold" style="color:var(--teal);">✓</span>
+                        <span class="mt-0.5 font-bold" style="color:var(--salvia);">✓</span>
                         PNL aplicada al bienestar y al liderazgo
                     </li>
                     <li class="flex items-start gap-2">
-                        <span class="mt-0.5 font-bold" style="color:var(--teal);">✓</span>
+                        <span class="mt-0.5 font-bold" style="color:var(--salvia);">✓</span>
                         Formatos virtuales y a tu ritmo
                     </li>
                 </ul>
                 <a href="psicologos4.0.html" class="btn-primary">Ver todos los cursos</a>
             </div>
 
-            <div class="reveal bg-white rounded-2xl p-8 text-center" style="border: 1px solid var(--gris-ln);">
+            <div class="reveal bg-white rounded-2xl p-8 text-center" style="border: 1px solid var(--linea);">
                 <div class="text-5xl mb-4">🎓</div>
-                <h3 class="text-xl font-bold mb-3" style="color:var(--navy);">¿Eres psicólogo o profesional de la salud mental?</h3>
+                <h3 class="text-xl font-bold mb-3" style="color:var(--bosque);">¿Eres psicólogo o profesional de la salud mental?</h3>
                 <p class="text-gray-500 text-sm leading-relaxed mb-6">
                     Actualiza tu práctica con tecnología, herramientas de IA y metodologías innovadoras adaptadas al contexto colombiano.
                 </p>
-                <a href="psicologos4.0.html" class="btn-teal">Ver programa Psicólogos 4.0</a>
+                <a href="psicologos4.0.html" class="btn-terra">Ver programa Psicólogos 4.0</a>
             </div>
         </div>
     </div>
@@ -586,11 +587,11 @@
 <!-- ══════════════════════════════════════
      EQUIPO CLÍNICO
 ══════════════════════════════════════ -->
-<section id="equipo" class="py-20" style="background:var(--gris-bg);">
+<section id="equipo" class="py-20" style="background:var(--crema-md);">
     <div class="container mx-auto px-6 max-w-5xl text-center">
         <div class="reveal">
             <span class="section-label">El equipo detrás del ecosistema</span>
-            <h2 class="text-4xl font-black mt-2 mb-2" style="color:var(--navy);">El equipo detrás del ecosistema</h2>
+            <h2 class="text-4xl font-black mt-2 mb-2" style="color:var(--bosque);">El equipo detrás del ecosistema</h2>
             <div class="title-line"></div>
             <p class="text-gray-500 text-lg mt-5 max-w-xl mx-auto">
                 Cuando el proceso lo requiere, activamos una red interdisciplinaria de especialistas para garantizar atención integral.
@@ -599,14 +600,14 @@
 
         <!-- Jorge primero — destacado -->
         <div class="mt-14 mb-10 reveal">
-            <div class="bg-white rounded-2xl p-8 max-w-sm mx-auto text-center" style="border: 2px solid var(--teal);">
-                <img src="jac.png" alt="Jorge Arango Castaño" class="w-28 h-28 rounded-full object-cover mx-auto mb-4" style="border: 3px solid var(--teal);">
-                <p class="font-black text-lg" style="color:var(--navy);">Jorge Arango Castaño</p>
-                <p class="text-sm font-semibold mb-1" style="color:var(--teal);">Director Científico y Fundador</p>
+            <div class="bg-white rounded-2xl p-8 max-w-sm mx-auto text-center" style="border: 2px solid var(--salvia);">
+                <img src="jac.png" alt="Jorge Arango Castaño" class="w-28 h-28 rounded-full object-cover mx-auto mb-4" style="border: 3px solid var(--salvia);">
+                <p class="font-black text-lg" style="color:var(--bosque);">Jorge Arango Castaño</p>
+                <p class="text-sm font-semibold mb-1" style="color:var(--salvia);">Director Científico y Fundador</p>
                 <p class="text-xs text-gray-400 leading-relaxed mb-3">
                     Psicólogo Humanista-Existencial · Mg. Dirección y Gestión de Proyectos · Certificado PNL
                 </p>
-                <a href="https://www.linkedin.com/in/jorge-arango-casta%C3%B1o-542a1615/" target="_blank" class="inline-flex items-center gap-1 text-xs font-semibold" style="color:var(--navy);">
+                <a href="https://www.linkedin.com/in/jorge-arango-casta%C3%B1o-542a1615/" target="_blank" class="inline-flex items-center gap-1 text-xs font-semibold" style="color:var(--bosque);">
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
             </div>
@@ -618,42 +619,42 @@
                 <a href="https://www.instagram.com/villegasmg" target="_blank">
                     <img src="marce.jpg" alt="Marcela Villegas" class="team-img">
                 </a>
-                <p class="mt-3 font-semibold text-sm" style="color:var(--navy);">Marcela Villegas</p>
+                <p class="mt-3 font-semibold text-sm" style="color:var(--bosque);">Marcela Villegas</p>
                 <p class="text-xs text-gray-400">@villegasmg</p>
             </div>
             <div class="team-card reveal">
                 <a href="https://www.instagram.com/psi.marthabenitezb" target="_blank">
                     <img src="martha.jpg" alt="Martha Benítez" class="team-img">
                 </a>
-                <p class="mt-3 font-semibold text-sm" style="color:var(--navy);">Martha Benítez</p>
+                <p class="mt-3 font-semibold text-sm" style="color:var(--bosque);">Martha Benítez</p>
                 <p class="text-xs text-gray-400">@psi.marthabenitezb</p>
             </div>
             <div class="team-card reveal">
                 <a href="https://www.instagram.com/johamoreno_sexologa" target="_blank">
                     <img src="joha.jpg" alt="Johana Moreno" class="team-img">
                 </a>
-                <p class="mt-3 font-semibold text-sm" style="color:var(--navy);">Johana Moreno</p>
+                <p class="mt-3 font-semibold text-sm" style="color:var(--bosque);">Johana Moreno</p>
                 <p class="text-xs text-gray-400">@johamoreno_sexologa</p>
             </div>
             <div class="team-card reveal">
                 <a href="https://www.instagram.com/claurece" target="_blank">
                     <img src="clau.jpg" alt="Claudia Reyes" class="team-img">
                 </a>
-                <p class="mt-3 font-semibold text-sm" style="color:var(--navy);">Claudia Reyes</p>
+                <p class="mt-3 font-semibold text-sm" style="color:var(--bosque);">Claudia Reyes</p>
                 <p class="text-xs text-gray-400">@claurece</p>
             </div>
             <div class="team-card reveal">
                 <a href="https://www.instagram.com/victorrivera.5" target="_blank">
                     <img src="vic.jpg" alt="Victor Rivera" class="team-img">
                 </a>
-                <p class="mt-3 font-semibold text-sm" style="color:var(--navy);">Victor Rivera</p>
+                <p class="mt-3 font-semibold text-sm" style="color:var(--bosque);">Victor Rivera</p>
                 <p class="text-xs text-gray-400">@victorrivera.5</p>
             </div>
             <div class="team-card reveal lg:col-start-2">
                 <a href="https://www.instagram.com/profesormackenzie" target="_blank">
                     <img src="steven.jpg" alt="Steven Mackenzie" class="team-img">
                 </a>
-                <p class="mt-3 font-semibold text-sm" style="color:var(--navy);">Steven Mackenzie</p>
+                <p class="mt-3 font-semibold text-sm" style="color:var(--bosque);">Steven Mackenzie</p>
                 <p class="text-xs text-gray-400">@profesormackenzie</p>
             </div>
         </div>
@@ -666,14 +667,14 @@
 <section id="contacto" class="py-24 bg-white border-t border-gray-100">
     <div class="container mx-auto px-6 max-w-3xl text-center reveal">
         <span class="section-label">¿Listo para empezar?</span>
-        <h2 class="text-4xl md:text-5xl font-black mt-2 mb-5" style="color:var(--navy);">
-            Hablemos de lo que<br><span style="color:var(--teal);">necesitas.</span>
+        <h2 class="text-4xl md:text-5xl font-black mt-2 mb-5" style="color:var(--bosque);">
+            Hablemos de lo que<br><span style="color:var(--salvia);">necesitas.</span>
         </h2>
         <p class="text-gray-500 text-lg mb-10 max-w-xl mx-auto">
             Ya sea una herramienta de IA para tu empresa, un taller para tu equipo, un curso de actualización o acompañamiento especializado — tenemos algo construido para ti.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Caminos%20del%20Ser." class="btn-teal text-base">
+            <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Caminos%20del%20Ser." class="btn-terra text-base">
                 <i class="fab fa-whatsapp mr-2"></i>Escribirnos por WhatsApp
             </a>
             <a href="#productos" class="btn-outline text-base">Explorar productos</a>
@@ -687,7 +688,7 @@
 <!-- ══════════════════════════════════════
      FOOTER
 ══════════════════════════════════════ -->
-<footer style="background:var(--navy); color:#94a3b8;" class="py-14">
+<footer style="background:var(--bosque); color:#a8c0b8;" class="py-14">
     <div class="container mx-auto px-6 max-w-6xl">
         <div class="grid md:grid-cols-4 gap-10 mb-10">
 
@@ -736,7 +737,7 @@
 
         </div>
 
-        <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-600">
+        <div class="pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs" style="border-top: 1px solid rgba(255,255,255,0.12); color:#7a9e95;">
             <p>&copy; 2026 Caminos del Ser · Todos los derechos reservados.</p>
             <p>Una marca de <strong class="text-gray-500">Emcotic S.A.S</strong></p>
         </div>
@@ -752,9 +753,9 @@
 <div id="cookieBanner">
     <p style="margin:0; max-width:680px;">
         Usamos cookies para mejorar tu experiencia.
-        <a href="politicadatos.html" style="color:var(--teal); text-decoration:underline;">Más información</a>.
+        <a href="politicadatos.html" style="color:var(--salvia); text-decoration:underline;">Más información</a>.
     </p>
-    <button id="acceptCookies" style="background:var(--teal); color:#fff; font-weight:600; padding:0.45rem 1.5rem; border-radius:50px; white-space:nowrap; margin-top:0.5rem; transition:opacity 0.2s;">
+    <button id="acceptCookies" style="background:var(--terra); color:#fff; font-weight:600; padding:0.45rem 1.5rem; border-radius:50px; white-space:nowrap; margin-top:0.5rem; transition:opacity 0.2s;">
         Aceptar
     </button>
 </div>
