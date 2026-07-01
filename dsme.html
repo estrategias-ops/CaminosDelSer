@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSME | Diagnóstico de Salud Mental del Emprendedor · Caminos del Ser</title>
+    <meta name="description" content="DSME evalúa tu estado emocional real, detecta burnout y ansiedad, y genera un plan de acción personalizado para que lideres con claridad y productividad.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --bosque:   #2C4A3E;
+            --salvia:   #5BA08A;
+            --salvia-lt:#EAF4F1;
+            --terra:    #C4845A;
+            --terra-lt: #FAF0E8;
+            --crema:    #FAF8F5;
+            --crema-md: #F0EDE8;
+            --linea:    #DDD8D0;
+            --texto:    #2C3A2E;
+            --texto-sm: #6B7A6E;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--texto); background: var(--crema); }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+
+        .btn-primary { background: var(--bosque); color: #fff; font-weight: 600; padding: 0.9rem 2rem; border-radius: 50px; display: inline-block; transition: all 0.25s; box-shadow: 0 4px 16px rgba(44,74,62,0.22); }
+        .btn-primary:hover { background: #1e3529; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(44,74,62,0.28); }
+        .btn-terra { background: var(--terra); color: #fff; font-weight: 600; padding: 0.9rem 2rem; border-radius: 50px; display: inline-block; transition: all 0.25s; box-shadow: 0 4px 16px rgba(196,132,90,0.3); }
+        .btn-terra:hover { filter: brightness(1.08); transform: translateY(-2px); }
+        .btn-outline { border: 2px solid var(--bosque); color: var(--bosque); font-weight: 600; padding: 0.75rem 1.75rem; border-radius: 50px; display: inline-block; transition: all 0.25s; }
+        .btn-outline:hover { background: var(--bosque); color: #fff; transform: translateY(-2px); }
+
+        .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--salvia); display: block; }
+        .title-line { width: 44px; height: 3px; background: var(--terra); border-radius: 2px; margin: 0.65rem auto 0; }
+        .title-line-left { margin: 0.65rem 0 0; }
+        .nav-link { color: var(--bosque); font-weight: 500; transition: color 0.2s; font-size: 0.9rem; }
+        .nav-link:hover { color: var(--salvia); }
+
+        .stat-card { background: #fff; border-radius: 1.25rem; padding: 2rem; border: 1px solid var(--linea); text-align: center; }
+        .stat-num { font-family: 'DM Serif Display', serif; font-size: 3rem; font-weight: 400; color: var(--terra); line-height: 1; }
+
+        .step-card { background: #fff; border-radius: 1.25rem; padding: 1.75rem; border: 1px solid var(--linea); transition: all 0.25s; }
+        .step-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(44,74,62,0.09); }
+        .step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--salvia-lt); color: var(--salvia); font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 9000; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(37,211,102,0.45); transition: transform 0.25s; }
+        .wa-float:hover { transform: scale(1.12); }
+
+        /* Hero gradient sutil */
+        .hero-bg { background: linear-gradient(160deg, #f5f2ec 0%, var(--crema) 60%, #eaf4f1 100%); }
+
+        /* Alert stat */
+        .alert-stat { background: var(--terra-lt); border-left: 4px solid var(--terra); border-radius: 0 1rem 1rem 0; padding: 1rem 1.25rem; }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 shadow-sm" style="background:var(--crema); border-bottom: 1px solid var(--linea);">
+    <nav class="container mx-auto px-6 py-3 flex justify-between items-center max-w-6xl">
+        <a href="https://www.caminosdelser.co">
+            <img src="logoprincipal.png" alt="Caminos del Ser" class="h-10">
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+            <a href="#problema"  class="nav-link">El problema</a>
+            <a href="#que-es"    class="nav-link">Qué es DSME</a>
+            <a href="#como"      class="nav-link">Cómo funciona</a>
+            <a href="#contacto"  class="nav-link">Contacto</a>
+            <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20solicitar%20un%20diagnóstico%20DSME." class="btn-terra py-2 px-5 text-sm">
+                Solicitar diagnóstico
+            </a>
+        </div>
+        <button id="mobileBtn" class="md:hidden focus:outline-none" style="color:var(--bosque);">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </nav>
+    <div id="mobileMenu" class="hidden md:hidden px-6 py-4 space-y-3" style="background:var(--crema); border-top: 1px solid var(--linea);">
+        <a href="#problema" class="block nav-link py-1">El problema</a>
+        <a href="#que-es"   class="block nav-link py-1">Qué es DSME</a>
+        <a href="#como"     class="block nav-link py-1">Cómo funciona</a>
+        <a href="#contacto" class="block nav-link py-1">Contacto</a>
+        <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20solicitar%20un%20diagnóstico%20DSME." class="btn-terra text-sm inline-block mt-2">Solicitar diagnóstico</a>
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero-bg py-20 md:py-28">
+    <div class="container mx-auto px-6 max-w-5xl text-center">
+        <div class="reveal">
+            <span class="section-label mb-3">Herramienta de IA · Para emprendedores y CEOs</span>
+            <h1 class="text-5xl md:text-6xl mt-2 mb-5 leading-tight" style="color:var(--bosque);">
+                Tu salud mental es el<br>activo más importante<br>
+                <span style="color:var(--terra);">de tu empresa.</span>
+            </h1>
+            <p class="text-xl text-gray-500 leading-relaxed mb-10 max-w-2xl mx-auto">
+                DSME evalúa tu estado emocional real, detecta burnout y ansiedad, y genera un plan de acción personalizado para que lideres con claridad y productividad.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20solicitar%20mi%20diagnóstico%20DSME." class="btn-terra text-lg">
+                    Solicitar mi diagnóstico
+                </a>
+                <a href="#como" class="btn-outline text-lg">Ver cómo funciona</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EL PROBLEMA -->
+<section id="problema" class="py-20" style="background:#fff;">
+    <div class="container mx-auto px-6 max-w-5xl">
+        <div class="text-center mb-14 reveal">
+            <span class="section-label">La realidad que nadie quiere ver</span>
+            <h2 class="text-4xl mt-2 mb-2" style="color:var(--bosque);">La salud mental es el asesino<br>silencioso de las empresas.</h2>
+            <div class="title-line"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="stat-card reveal">
+                <div class="stat-num">75%</div>
+                <p class="text-gray-500 text-sm mt-2 leading-relaxed">de los emprendimientos cierran antes del tercer año.</p>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-num">60%</div>
+                <p class="text-gray-500 text-sm mt-2 leading-relaxed">de los emprendedores operan bajo burnout o fatiga crónica.</p>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-num">30%</div>
+                <p class="text-gray-500 text-sm mt-2 leading-relaxed">presenta cuadros de angustia psicológica severa.</p>
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-4 reveal">
+            <div class="alert-stat">
+                <p class="text-sm leading-relaxed" style="color:var(--texto);">📉 <strong>Muchos cierres registrados como "falta de ejecución"</strong> o "renuncia del equipo" tienen su raíz en la fatiga crónica y la falta de motivación del fundador. <span class="text-gray-400">(Confecámaras)</span></p>
+            </div>
+            <div class="alert-stat">
+                <p class="text-sm leading-relaxed" style="color:var(--texto);">🧠 <strong>En Colombia, los trastornos mentales se han cuadruplicado en la última década</strong> y son ya la segunda causa de ausentismo y pérdida de productividad laboral.</p>
+            </div>
+            <div class="alert-stat">
+                <p class="text-sm leading-relaxed" style="color:var(--texto);">💡 <strong>El 60% de los fundadores en Latinoamérica presenta síntomas de burnout.</strong> <span class="text-gray-400">(BID Lab / Endeavor, 2024-2025)</span></p>
+            </div>
+        </div>
+
+        <p class="text-center text-xl mt-12 font-semibold reveal" style="color:var(--bosque);">
+            Cuando el líder cae, la empresa cae.<br>
+            <span style="color:var(--salvia);">DSME existe para que eso no te pase a ti.</span>
+        </p>
+    </div>
+</section>
+
+<!-- QUÉ ES DSME -->
+<section id="que-es" class="py-20" style="background:var(--crema-md);">
+    <div class="container mx-auto px-6 max-w-5xl">
+        <div class="grid md:grid-cols-2 gap-14 items-center">
+            <div class="reveal">
+                <span class="section-label">Qué es</span>
+                <h2 class="text-4xl mt-2 mb-2" style="color:var(--bosque);">DSME — Diagnóstico de Salud Mental del Emprendedor</h2>
+                <div class="title-line title-line-left"></div>
+                <p class="text-gray-500 leading-relaxed mt-5 mb-5">
+                    Una herramienta de inteligencia artificial diseñada específicamente para CEOs, fundadores y solopreneurs. No es un cuestionario genérico — es un diagnóstico clínico con tecnología que entiende el perfil del emprendedor colombiano.
+                </p>
+                <ul class="space-y-3 text-sm mb-8">
+                    <li class="flex items-start gap-2"><span class="font-bold mt-0.5" style="color:var(--salvia);">✓</span> Mide niveles reales de burnout, ansiedad y motivación</li>
+                    <li class="flex items-start gap-2"><span class="font-bold mt-0.5" style="color:var(--salvia);">✓</span> Genera un índice consolidado de tu salud mental como líder</li>
+                    <li class="flex items-start gap-2"><span class="font-bold mt-0.5" style="color:var(--salvia);">✓</span> Diseña un plan de acción personalizado basado en datos</li>
+                    <li class="flex items-start gap-2"><span class="font-bold mt-0.5" style="color:var(--salvia);">✓</span> 100% online y confidencial</li>
+                    <li class="flex items-start gap-2"><span class="font-bold mt-0.5" style="color:var(--salvia);">✓</span> Disponible en cualquier momento y desde cualquier lugar</li>
+                </ul>
+                <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20solicitar%20mi%20diagnóstico%20DSME." class="btn-terra">
+                    Quiero mi diagnóstico
+                </a>
+            </div>
+
+            <div class="reveal">
+                <div class="bg-white rounded-2xl p-8 text-center" style="border: 2px solid var(--salvia-lt);">
+                    <div class="text-6xl mb-5">🧠</div>
+                    <h3 class="text-2xl mb-3" style="color:var(--bosque);">¿Para quién es?</h3>
+                    <ul class="text-left space-y-3 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><span style="color:var(--terra);">→</span> CEOs y fundadores de startups</li>
+                        <li class="flex items-center gap-2"><span style="color:var(--terra);">→</span> Solopreneurs y emprendedores independientes</li>
+                        <li class="flex items-center gap-2"><span style="color:var(--terra);">→</span> Líderes de pequeñas y medianas empresas</li>
+                        <li class="flex items-center gap-2"><span style="color:var(--terra);">→</span> Directivos que sienten que ya no rinden igual</li>
+                        <li class="flex items-center gap-2"><span style="color:var(--terra);">→</span> Cualquier persona que lidera y quiere hacerlo bien</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section id="como" class="py-20" style="background:#fff;">
+    <div class="container mx-auto px-6 max-w-5xl">
+        <div class="text-center mb-14 reveal">
+            <span class="section-label">El proceso</span>
+            <h2 class="text-4xl mt-2 mb-2" style="color:var(--bosque);">Tres pasos.<br>Un diagnóstico que cambia todo.</h2>
+            <div class="title-line"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="step-card reveal">
+                <div class="step-num">1</div>
+                <div class="text-3xl mb-3">🔍</div>
+                <h3 class="text-xl mb-2" style="color:var(--bosque);">Medición con IA</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Completas nuestra herramienta online. La IA evalúa tu estado emocional real: burnout, ansiedad, motivación y capacidad de liderazgo bajo presión.</p>
+            </div>
+            <div class="step-card reveal">
+                <div class="step-num">2</div>
+                <div class="text-3xl mb-3">📊</div>
+                <h3 class="text-xl mb-2" style="color:var(--bosque);">Índice Consolidado</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Recibes un reporte claro y comprensible con tu índice de salud mental como líder: fortalezas, riesgos y áreas de intervención prioritaria.</p>
+            </div>
+            <div class="step-card reveal">
+                <div class="step-num">3</div>
+                <div class="text-3xl mb-3">🎯</div>
+                <h3 class="text-xl mb-2" style="color:var(--bosque);">Plan de Acción</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Diseñamos tu plan de rescate o fortalecimiento personalizado: mentorías, talleres o acompañamiento clínico según lo que tu diagnóstico revele.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- QUOTE -->
+<section class="py-16" style="background:var(--crema-md);">
+    <div class="container mx-auto px-6 max-w-3xl text-center reveal">
+        <p class="text-2xl md:text-3xl leading-relaxed italic" style="color:var(--bosque); font-family:'DM Serif Display', serif;">
+            "Un líder agotado no puede construir una empresa exitosa.<br>
+            <span style="color:var(--salvia);">DSME transforma ese riesgo en bienestar productivo."</span>
+        </p>
+        <p class="text-sm text-gray-400 mt-4">— Emcotic S.A.S · Caminos del Ser</p>
+    </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="contacto" class="py-24" style="background:#fff;">
+    <div class="container mx-auto px-6 max-w-3xl text-center reveal">
+        <span class="section-label">Da el primer paso</span>
+        <h2 class="text-4xl md:text-5xl mt-2 mb-5" style="color:var(--bosque);">
+            Conoce tu estado real.<br>
+            <span style="color:var(--terra);">Lidera con certeza.</span>
+        </h2>
+        <p class="text-gray-500 text-lg mb-10 max-w-xl mx-auto">
+            Solicita tu diagnóstico DSME hoy. Es confidencial, 100% online y el primer paso para que tú y tu empresa funcionen al máximo.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20solicitar%20mi%20diagnóstico%20DSME." class="btn-terra text-lg">
+                <i class="fab fa-whatsapp mr-2"></i>Solicitar diagnóstico
+            </a>
+            <a href="https://www.caminosdelser.co" class="btn-outline text-lg">
+                Conocer más productos
+            </a>
+        </div>
+        <p class="text-gray-400 text-xs mt-8">📍 100% virtual · Colombia y el mundo · Confidencial</p>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer style="background:var(--bosque); color:#a8c0b8;" class="py-10">
+    <div class="container mx-auto px-6 max-w-5xl flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>
+            <img src="logoprincipal.png" alt="Caminos del Ser" class="h-9 mb-2 opacity-90">
+            <p class="text-xs" style="color:#7a9e95;">Una marca de Emcotic S.A.S</p>
+        </div>
+        <div class="flex gap-6 text-sm">
+            <a href="https://www.caminosdelser.co" class="hover:text-white transition">Caminos del Ser</a>
+            <a href="https://wa.me/573233796547" class="hover:text-white transition">WhatsApp</a>
+            <a href="https://www.instagram.com/caminosdelser85" target="_blank" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="text-xs" style="color:#7a9e95;">&copy; 2026 Caminos del Ser · Emcotic S.A.S</p>
+    </div>
+</footer>
+
+<a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20solicitar%20mi%20diagnóstico%20DSME." class="wa-float" target="_blank">
+    <i class="fab fa-whatsapp text-white text-2xl"></i>
+</a>
+
+<script>
+    document.getElementById('mobileBtn').addEventListener('click', function() { document.getElementById('mobileMenu').classList.toggle('hidden'); });
+    document.querySelectorAll('#mobileMenu a').forEach(function(a) { a.addEventListener('click', function() { document.getElementById('mobileMenu').classList.add('hidden'); }); });
+    var ro = new IntersectionObserver(function(entries) { entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
+</script>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinformado | Gestión Clínica Digital para Psicólogos · Caminos del Ser</title>
+    <meta name="description" content="Cinformado es el sistema de gestión clínica digital para psicólogos: consentimiento informado, historia clínica, agendamiento y seguimiento de pacientes en una sola plataforma.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --bosque:   #2C4A3E;
+            --salvia:   #5BA08A;
+            --salvia-lt:#EAF4F1;
+            --terra:    #C4845A;
+            --terra-lt: #FAF0E8;
+            --crema:    #FAF8F5;
+            --crema-md: #F0EDE8;
+            --linea:    #DDD8D0;
+            --texto:    #2C3A2E;
+            --texto-sm: #6B7A6E;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--texto); background: var(--crema); }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+
+        .btn-primary { background: var(--bosque); color: #fff; font-weight: 600; padding: 0.9rem 2rem; border-radius: 50px; display: inline-block; transition: all 0.25s; box-shadow: 0 4px 16px rgba(44,74,62,0.22); }
+        .btn-primary:hover { background: #1e3529; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(44,74,62,0.28); }
+        .btn-terra { background: var(--terra); color: #fff; font-weight: 600; padding: 0.9rem 2rem; border-radius: 50px; display: inline-block; transition: all 0.25s; box-shadow: 0 4px 16px rgba(196,132,90,0.3); }
+        .btn-terra:hover { filter: brightness(1.08); transform: translateY(-2px); }
+        .btn-outline { border: 2px solid var(--bosque); color: var(--bosque); font-weight: 600; padding: 0.75rem 1.75rem; border-radius: 50px; display: inline-block; transition: all 0.25s; }
+        .btn-outline:hover { background: var(--bosque); color: #fff; transform: translateY(-2px); }
+
+        .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--salvia); display: block; }
+        .title-line { width: 44px; height: 3px; background: var(--terra); border-radius: 2px; margin: 0.65rem auto 0; }
+        .title-line-left { margin: 0.65rem 0 0; }
+        .nav-link { color: var(--bosque); font-weight: 500; transition: color 0.2s; font-size: 0.9rem; }
+        .nav-link:hover { color: var(--salvia); }
+
+        .feature-card { background: #fff; border-radius: 1.25rem; padding: 1.75rem; border: 1px solid var(--linea); transition: all 0.25s; }
+        .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(44,74,62,0.09); }
+        .feature-icon { width: 52px; height: 52px; border-radius: 14px; background: var(--salvia-lt); color: var(--salvia); font-size: 1.25rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+
+        .benefit-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem; border-radius: 1rem; background: #fff; border: 1px solid var(--linea); }
+        .check-circle { width: 32px; height: 32px; border-radius: 50%; background: var(--salvia-lt); color: var(--salvia); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.8rem; margin-top: 1px; }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 9000; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(37,211,102,0.45); transition: transform 0.25s; }
+        .wa-float:hover { transform: scale(1.12); }
+
+        .hero-bg { background: linear-gradient(160deg, #f5f2ec 0%, var(--crema) 60%, #eaf4f1 100%); }
+        .screen-mockup { background: #fff; border-radius: 1.5rem; border: 1px solid var(--linea); box-shadow: 0 20px 60px rgba(44,74,62,0.12); overflow: hidden; }
+        .mockup-bar { background: var(--crema-md); height: 40px; display: flex; align-items: center; padding: 0 1rem; gap: 6px; }
+        .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-[var(--linea)]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+            <span class="font-bold text-[var(--bosque)] text-lg tracking-tight">Caminos del Ser</span>
+        </a>
+        <div class="hidden md:flex items-center gap-7">
+            <a href="index.html#productos" class="nav-link">Productos</a>
+            <a href="dsme.html" class="nav-link">DSME</a>
+            <a href="amelia.html" class="nav-link">AMELIA</a>
+            <a href="index.html#equipo" class="nav-link">Equipo</a>
+            <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20información%20sobre%20Cinformado" target="_blank" class="btn-primary text-sm" style="padding:0.6rem 1.4rem">Solicitar acceso</a>
+        </div>
+        <button class="md:hidden text-[var(--bosque)]" onclick="document.getElementById('mob-menu').classList.toggle('hidden')">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </div>
+    <div id="mob-menu" class="hidden md:hidden bg-white px-6 pb-4 flex flex-col gap-3 border-t border-[var(--linea)]">
+        <a href="index.html#productos" class="nav-link py-1">Productos</a>
+        <a href="dsme.html" class="nav-link py-1">DSME</a>
+        <a href="amelia.html" class="nav-link py-1">AMELIA</a>
+        <a href="index.html#equipo" class="nav-link py-1">Equipo</a>
+        <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20información%20sobre%20Cinformado" target="_blank" class="btn-primary text-sm mt-1 text-center">Solicitar acceso</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-bg py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-flex items-center gap-2 bg-[var(--salvia-lt)] text-[var(--bosque)] text-xs font-semibold px-4 py-2 rounded-full mb-6 uppercase tracking-wider">
+                    <i class="fas fa-shield-alt text-[var(--salvia)]"></i>
+                    Gestión Clínica Digital
+                </div>
+                <h1 class="text-4xl md:text-5xl mb-6 leading-tight text-[var(--bosque)]">
+                    Tu práctica clínica,<br>
+                    <em class="text-[var(--salvia)] not-italic">organizada y protegida.</em>
+                </h1>
+                <p class="text-lg text-[var(--texto-sm)] mb-10 leading-relaxed">
+                    Cinformado es el sistema de gestión clínica diseñado por psicólogos, para psicólogos. Consentimiento informado digital, historia clínica, agendamiento y seguimiento de pacientes — todo en un solo lugar, seguro y ético.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20solicitar%20acceso%20a%20Cinformado" target="_blank" class="btn-terra">
+                        <i class="fab fa-whatsapp mr-2"></i>Solicitar acceso
+                    </a>
+                    <a href="#funcionalidades" class="btn-outline">Ver funcionalidades</a>
+                </div>
+            </div>
+            <div class="reveal">
+                <div class="screen-mockup">
+                    <div class="mockup-bar">
+                        <div class="mockup-dot" style="background:#FF6B6B"></div>
+                        <div class="mockup-dot" style="background:#FFD93D"></div>
+                        <div class="mockup-dot" style="background:#6BCB77"></div>
+                        <div class="ml-4 text-xs text-[var(--texto-sm)] font-mono">cinformado.caminosdelser.co</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-5">
+                            <div class="w-8 h-8 rounded-full" style="background:var(--salvia)"></div>
+                            <div>
+                                <p class="text-xs font-semibold text-[var(--texto)]">Dr. Carlos Martínez</p>
+                                <p class="text-xs text-[var(--texto-sm)]">Psicólogo Clínico</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between bg-[var(--crema)] rounded-lg p-3">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-file-signature text-[var(--salvia)] text-sm"></i>
+                                    <span class="text-xs font-medium text-[var(--texto)]">Consentimiento — María G.</span>
+                                </div>
+                                <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-semibold">Firmado</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-[var(--crema)] rounded-lg p-3">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-calendar-check text-[var(--salvia)] text-sm"></i>
+                                    <span class="text-xs font-medium text-[var(--texto)]">Sesión hoy — 3:00 PM</span>
+                                </div>
+                                <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">Confirmada</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-[var(--crema)] rounded-lg p-3">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-notes-medical text-[var(--salvia)] text-sm"></i>
+                                    <span class="text-xs font-medium text-[var(--texto)]">Historia clínica — Sesión 8</span>
+                                </div>
+                                <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-semibold">Por registrar</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-[var(--crema)] rounded-lg p-3">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-chart-bar text-[var(--salvia)] text-sm"></i>
+                                    <span class="text-xs font-medium text-[var(--texto)]">Reporte mensual — Septiembre</span>
+                                </div>
+                                <span class="text-xs bg-[var(--salvia-lt)] text-[var(--bosque)] px-2 py-0.5 rounded-full font-semibold">Listo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+                <span class="section-label">El problema</span>
+                <h2 class="text-3xl md:text-4xl mt-3 mb-6 text-[var(--bosque)]">Los psicólogos dedican demasiado tiempo a la administración.</h2>
+                <div class="title-line-left title-line mb-8"></div>
+                <p class="text-[var(--texto-sm)] leading-relaxed mb-5">
+                    La práctica clínica se ahoga en papeles, correos y tablas de Excel. Los consentimientos informados en papel se pierden. Las historias clínicas quedan incompletas. Los recordatorios de citas fallan.
+                </p>
+                <p class="text-[var(--texto-sm)] leading-relaxed">
+                    Y mientras tanto, el tiempo y la energía que deberían estar con los pacientes se quedan atrapados en tareas administrativas que ningún psicólogo estudió para hacer.
+                </p>
+            </div>
+            <div class="space-y-4 reveal" style="transition-delay:0.15s">
+                <div class="alert-stat" style="background:var(--terra-lt); border-left:4px solid var(--terra); border-radius:0 1rem 1rem 0; padding:1rem 1.25rem;">
+                    <p class="text-sm font-semibold text-[var(--texto)]">
+                        <i class="fas fa-clock text-[var(--terra)] mr-2"></i>
+                        Los psicólogos en práctica privada dedican hasta <strong>30% de su tiempo</strong> a tareas administrativas
+                    </p>
+                </div>
+                <div class="alert-stat" style="background:var(--terra-lt); border-left:4px solid var(--terra); border-radius:0 1rem 1rem 0; padding:1rem 1.25rem;">
+                    <p class="text-sm font-semibold text-[var(--texto)]">
+                        <i class="fas fa-file-excel text-[var(--terra)] mr-2"></i>
+                        El <strong>68% de las demandas legales</strong> a psicólogos involucran problemas con el consentimiento informado
+                    </p>
+                </div>
+                <div class="alert-stat" style="background:var(--terra-lt); border-left:4px solid var(--terra); border-radius:0 1rem 1rem 0; padding:1rem 1.25rem;">
+                    <p class="text-sm font-semibold text-[var(--texto)]">
+                        <i class="fas fa-user-times text-[var(--terra)] mr-2"></i>
+                        La falta de seguimiento estructurado aumenta el <strong>abandono terapéutico hasta en un 45%</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FUNCIONALIDADES -->
+<section id="funcionalidades" class="py-20" style="background:var(--crema)">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-14 reveal">
+            <span class="section-label">Funcionalidades</span>
+            <h2 class="text-3xl md:text-4xl mt-3 text-[var(--bosque)]">Todo lo que necesitas para<br>ejercer con tranquilidad.</h2>
+            <div class="title-line"></div>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-file-signature"></i></div>
+                <h3 class="text-lg mb-2 text-[var(--bosque)]">Consentimiento Informado Digital</h3>
+                <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Genera, envía y almacena consentimientos informados con firma digital. Válido legalmente, sin papel, trazable y seguro.</p>
+            </div>
+            <div class="feature-card reveal" style="transition-delay:0.08s">
+                <div class="feature-icon"><i class="fas fa-notes-medical"></i></div>
+                <h3 class="text-lg mb-2 text-[var(--bosque)]">Historia Clínica Electrónica</h3>
+                <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Registra cada sesión con estructura clínica: motivo de consulta, evolución, diagnóstico y plan terapéutico. Todo organizado y accesible.</p>
+            </div>
+            <div class="feature-card reveal" style="transition-delay:0.16s">
+                <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
+                <h3 class="text-lg mb-2 text-[var(--bosque)]">Agendamiento Inteligente</h3>
+                <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Agenda online, recordatorios automáticos por WhatsApp, gestión de cancelaciones y control de citas perdidas.</p>
+            </div>
+            <div class="feature-card reveal" style="transition-delay:0.24s">
+                <div class="feature-icon"><i class="fas fa-user-friends"></i></div>
+                <h3 class="text-lg mb-2 text-[var(--bosque)]">Seguimiento de Pacientes</h3>
+                <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Panel de cada paciente con historial completo, evolución de síntomas y alertas de seguimiento para detectar abandono temprano.</p>
+            </div>
+            <div class="feature-card reveal" style="transition-delay:0.32s">
+                <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                <h3 class="text-lg mb-2 text-[var(--bosque)]">Seguridad y Confidencialidad</h3>
+                <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Datos cifrados, acceso por autenticación segura y cumplimiento con principios deontológicos de confidencialidad clínica.</p>
+            </div>
+            <div class="feature-card reveal" style="transition-delay:0.40s">
+                <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+                <h3 class="text-lg mb-2 text-[var(--bosque)]">Reportes y Estadísticas</h3>
+                <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Métricas de tu práctica: pacientes activos, tasas de retención, sesiones por mes y evolución clínica agregada.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-14 reveal">
+            <span class="section-label">Para quién es Cinformado</span>
+            <h2 class="text-3xl md:text-4xl mt-3 text-[var(--bosque)]">Hecho para quienes cuidan<br>la salud mental de otros.</h2>
+            <div class="title-line"></div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div class="benefit-item reveal">
+                <div class="check-circle"><i class="fas fa-check text-sm"></i></div>
+                <div>
+                    <p class="font-semibold text-sm text-[var(--texto)] mb-1">Psicólogos en práctica privada</p>
+                    <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Que quieren dejar de perder tiempo en papeleo y dedicarle más energía a sus pacientes.</p>
+                </div>
+            </div>
+            <div class="benefit-item reveal" style="transition-delay:0.1s">
+                <div class="check-circle"><i class="fas fa-check text-sm"></i></div>
+                <div>
+                    <p class="font-semibold text-sm text-[var(--texto)] mb-1">Consultorios y clínicas de psicología</p>
+                    <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Que necesitan gestionar múltiples profesionales, pacientes y agendas desde un panel centralizado.</p>
+                </div>
+            </div>
+            <div class="benefit-item reveal" style="transition-delay:0.15s">
+                <div class="check-circle"><i class="fas fa-check text-sm"></i></div>
+                <div>
+                    <p class="font-semibold text-sm text-[var(--texto)] mb-1">Psicólogos organizacionales</p>
+                    <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Que intervienen en empresas y necesitan documentar procesos, talleres y seguimientos con rigor clínico.</p>
+                </div>
+            </div>
+            <div class="benefit-item reveal" style="transition-delay:0.2s">
+                <div class="check-circle"><i class="fas fa-check text-sm"></i></div>
+                <div>
+                    <p class="font-semibold text-sm text-[var(--texto)] mb-1">Psicólogos en formación</p>
+                    <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Que inician su práctica y quieren hacerlo con las herramientas correctas desde el primer día.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- QUOTE -->
+<section class="py-16" style="background:var(--bosque)">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+        <i class="fas fa-quote-left text-[var(--salvia)] text-3xl mb-6 block opacity-60"></i>
+        <blockquote class="text-2xl md:text-3xl text-white leading-relaxed mb-6" style="font-family:'DM Serif Display',serif; font-weight:400;">
+            "El mejor psicólogo no es el que más sabe — es el que más puede estar presente para sus pacientes. Cinformado libera ese tiempo."
+        </blockquote>
+        <p class="text-sm text-[var(--salvia)] font-semibold tracking-wide">Equipo Caminos del Ser</p>
+    </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="py-24" style="background:var(--terra-lt)">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+        <div class="reveal">
+            <span class="section-label" style="color:var(--terra)">Empieza hoy</span>
+            <h2 class="text-3xl md:text-4xl mt-3 mb-6 text-[var(--bosque)]">Recupera tu tiempo.<br>Ejerce con tranquilidad.</h2>
+            <p class="text-[var(--texto-sm)] mb-10 max-w-xl mx-auto leading-relaxed">
+                Contáctanos y te mostramos cómo Cinformado puede transformar tu práctica clínica. Onboarding personalizado, soporte continuo y una plataforma diseñada con criterio clínico.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20solicitar%20acceso%20a%20Cinformado" target="_blank" class="btn-terra">
+                    <i class="fab fa-whatsapp mr-2"></i>Solicitar acceso
+                </a>
+                <a href="index.html" class="btn-outline">Conocer más de Caminos del Ser</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--bosque)" class="text-white pt-14 pb-8">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-10 mb-10">
+            <div>
+                <p class="font-bold text-lg mb-2">Caminos del Ser</p>
+                <p class="text-sm text-white/60 leading-relaxed">Donde la tecnología y lo humano se encuentran para transformar la salud mental.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-sm mb-3 text-white/80 uppercase tracking-wider">Productos</p>
+                <ul class="space-y-2">
+                    <li><a href="amelia.html" class="text-sm text-white/60 hover:text-white transition-colors">AMELIA</a></li>
+                    <li><a href="dsme.html" class="text-sm text-white/60 hover:text-white transition-colors">DSME</a></li>
+                    <li><a href="cinformado.html" class="text-sm text-white/60 hover:text-white transition-colors">Cinformado</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-sm mb-3 text-white/80 uppercase tracking-wider">Contacto</p>
+                <a href="https://wa.me/573233796547" target="_blank" class="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-2">
+                    <i class="fab fa-whatsapp"></i> +57 323 379 6547
+                </a>
+            </div>
+        </div>
+        <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
+            <p class="text-xs text-white/40">© 2025 Caminos del Ser · Una marca Emcotic</p>
+            <p class="text-xs text-white/40">www.caminosdelser.co</p>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20información%20sobre%20Cinformado" target="_blank" class="wa-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp text-white text-2xl"></i>
+</a>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

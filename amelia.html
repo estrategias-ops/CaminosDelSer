@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMELIA | Diagnóstico Organizacional con IA · Caminos del Ser</title>
+    <meta name="description" content="AMELIA es la plataforma de diagnóstico y bienestar organizacional que usa inteligencia artificial para medir el estado emocional de tus equipos y diseñar estrategias de intervención efectivas.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --bosque:   #2C4A3E;
+            --salvia:   #5BA08A;
+            --salvia-lt:#EAF4F1;
+            --terra:    #C4845A;
+            --terra-lt: #FAF0E8;
+            --crema:    #FAF8F5;
+            --crema-md: #F0EDE8;
+            --linea:    #DDD8D0;
+            --texto:    #2C3A2E;
+            --texto-sm: #6B7A6E;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--texto); background: var(--crema); }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+
+        .btn-primary { background: var(--bosque); color: #fff; font-weight: 600; padding: 0.9rem 2rem; border-radius: 50px; display: inline-block; transition: all 0.25s; box-shadow: 0 4px 16px rgba(44,74,62,0.22); }
+        .btn-primary:hover { background: #1e3529; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(44,74,62,0.28); }
+        .btn-terra { background: var(--terra); color: #fff; font-weight: 600; padding: 0.9rem 2rem; border-radius: 50px; display: inline-block; transition: all 0.25s; box-shadow: 0 4px 16px rgba(196,132,90,0.3); }
+        .btn-terra:hover { filter: brightness(1.08); transform: translateY(-2px); }
+        .btn-outline { border: 2px solid var(--bosque); color: var(--bosque); font-weight: 600; padding: 0.75rem 1.75rem; border-radius: 50px; display: inline-block; transition: all 0.25s; }
+        .btn-outline:hover { background: var(--bosque); color: #fff; transform: translateY(-2px); }
+
+        .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--salvia); display: block; }
+        .title-line { width: 44px; height: 3px; background: var(--terra); border-radius: 2px; margin: 0.65rem auto 0; }
+        .title-line-left { margin: 0.65rem 0 0; }
+        .nav-link { color: var(--bosque); font-weight: 500; transition: color 0.2s; font-size: 0.9rem; }
+        .nav-link:hover { color: var(--salvia); }
+
+        .stat-card { background: #fff; border-radius: 1.25rem; padding: 2rem; border: 1px solid var(--linea); text-align: center; }
+        .stat-num { font-family: 'DM Serif Display', serif; font-size: 3rem; font-weight: 400; color: var(--terra); line-height: 1; }
+
+        .step-card { background: #fff; border-radius: 1.25rem; padding: 1.75rem; border: 1px solid var(--linea); transition: all 0.25s; }
+        .step-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(44,74,62,0.09); }
+        .step-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--salvia-lt); color: var(--salvia); font-size: 1.4rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+
+        .pillar-card { background: #fff; border-radius: 1.25rem; padding: 1.75rem; border: 1px solid var(--linea); }
+        .pillar-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--salvia); flex-shrink: 0; margin-top: 4px; }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 9000; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(37,211,102,0.45); transition: transform 0.25s; }
+        .wa-float:hover { transform: scale(1.12); }
+
+        .hero-bg { background: linear-gradient(160deg, #f5f2ec 0%, var(--crema) 60%, #eaf4f1 100%); }
+        .alert-stat { background: var(--terra-lt); border-left: 4px solid var(--terra); border-radius: 0 1rem 1rem 0; padding: 1rem 1.25rem; }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-[var(--linea)]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+            <span class="font-bold text-[var(--bosque)] text-lg tracking-tight">Caminos del Ser</span>
+        </a>
+        <div class="hidden md:flex items-center gap-7">
+            <a href="index.html#productos" class="nav-link">Productos</a>
+            <a href="dsme.html" class="nav-link">DSME</a>
+            <a href="cinformado.html" class="nav-link">Cinformado</a>
+            <a href="index.html#equipo" class="nav-link">Equipo</a>
+            <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20información%20sobre%20AMELIA" target="_blank" class="btn-primary text-sm" style="padding:0.6rem 1.4rem">Solicitar demo</a>
+        </div>
+        <button class="md:hidden text-[var(--bosque)]" onclick="document.getElementById('mob-menu').classList.toggle('hidden')">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </div>
+    <div id="mob-menu" class="hidden md:hidden bg-white px-6 pb-4 flex flex-col gap-3 border-t border-[var(--linea)]">
+        <a href="index.html#productos" class="nav-link py-1">Productos</a>
+        <a href="dsme.html" class="nav-link py-1">DSME</a>
+        <a href="cinformado.html" class="nav-link py-1">Cinformado</a>
+        <a href="index.html#equipo" class="nav-link py-1">Equipo</a>
+        <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20información%20sobre%20AMELIA" target="_blank" class="btn-primary text-sm mt-1 text-center">Solicitar demo</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-bg py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 bg-[var(--salvia-lt)] text-[var(--bosque)] text-xs font-semibold px-4 py-2 rounded-full mb-6 uppercase tracking-wider">
+                <i class="fas fa-brain text-[var(--salvia)]"></i>
+                Bienestar Organizacional con IA
+            </div>
+            <h1 class="text-4xl md:text-6xl mb-6 leading-tight text-[var(--bosque)]">
+                El bienestar de tus equipos<br>
+                <em class="text-[var(--salvia)] not-italic">es tu ventaja competitiva.</em>
+            </h1>
+            <p class="text-lg md:text-xl text-[var(--texto-sm)] max-w-2xl mx-auto mb-10 leading-relaxed">
+                AMELIA es la plataforma de diagnóstico organizacional que combina inteligencia artificial y psicología clínica para medir, comprender e intervenir en el estado emocional de tus equipos — con datos reales y planes de acción concretos.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20solicitar%20un%20demo%20de%20AMELIA" target="_blank" class="btn-terra">
+                    <i class="fab fa-whatsapp mr-2"></i>Solicitar demo gratuito
+                </a>
+                <a href="#como-funciona" class="btn-outline">Ver cómo funciona</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-14 reveal">
+            <span class="section-label">El problema</span>
+            <h2 class="text-3xl md:text-4xl mt-3 text-[var(--bosque)]">Las organizaciones invierten en productividad.<br>Descuidan lo que la sostiene.</h2>
+            <div class="title-line"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="stat-card reveal">
+                <div class="stat-num">73%</div>
+                <p class="text-sm text-[var(--texto-sm)] mt-3">de los líderes empresariales reportan síntomas de agotamiento severo (Gallup 2024)</p>
+            </div>
+            <div class="stat-card reveal" style="transition-delay:0.1s">
+                <div class="stat-num">60%</div>
+                <p class="text-sm text-[var(--texto-sm)] mt-3">de los empleados en LATAM experimenta burnout crónico que afecta su desempeño (BID Lab 2025)</p>
+            </div>
+            <div class="stat-card reveal" style="transition-delay:0.2s">
+                <div class="stat-num">3×</div>
+                <p class="text-sm text-[var(--texto-sm)] mt-3">más rotación en equipos sin programas de bienestar emocional estructurado (Endeavor 2024)</p>
+            </div>
+        </div>
+        <div class="max-w-3xl mx-auto">
+            <div class="alert-stat reveal">
+                <p class="text-[var(--texto)] text-sm font-medium">
+                    <i class="fas fa-exclamation-triangle text-[var(--terra)] mr-2"></i>
+                    El estrés no resuelto le cuesta a las empresas latinoamericanas más de $25 billones al año en ausentismo, errores y rotación de talento — y casi ninguna lo mide con precisión.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- QUÉ ES AMELIA -->
+<section class="py-20" style="background:var(--crema)">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <span class="section-label">Qué es AMELIA</span>
+                <h2 class="text-3xl md:text-4xl mt-3 mb-6 text-[var(--bosque)]">Diagnóstico profundo.<br>Intervención precisa.</h2>
+                <div class="title-line-left title-line mb-8"></div>
+                <p class="text-[var(--texto-sm)] leading-relaxed mb-5">
+                    AMELIA — <em>Adaptive Management & Emotional Leadership Intelligence Application</em> — es una plataforma desarrollada por psicólogos clínicos y expertos en organizaciones, potenciada con inteligencia artificial.
+                </p>
+                <p class="text-[var(--texto-sm)] leading-relaxed mb-5">
+                    No es una encuesta de clima. Es un sistema de diagnóstico organizacional que detecta patrones emocionales en tiempo real, genera índices consolidados por equipo y área, y produce planes de intervención personalizados — con el respaldo científico que las personas de tu organización merecen.
+                </p>
+                <p class="text-[var(--texto-sm)] leading-relaxed">
+                    Mientras <strong class="text-[var(--texto)]">DSME</strong> acompaña al emprendedor individual, AMELIA acompaña a la organización completa: líderes, equipos y culturas.
+                </p>
+            </div>
+            <div class="reveal" style="transition-delay:0.15s">
+                <div class="bg-white rounded-2xl p-8 border border-[var(--linea)]">
+                    <p class="text-sm font-semibold text-[var(--bosque)] mb-6">AMELIA mide lo que otras plataformas ignoran:</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="pillar-dot mt-1"></div>
+                            <div>
+                                <p class="font-semibold text-sm text-[var(--texto)]">Bienestar emocional individual</p>
+                                <p class="text-xs text-[var(--texto-sm)]">Estado de cada persona en la organización, con confidencialidad total</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="pillar-dot mt-1"></div>
+                            <div>
+                                <p class="font-semibold text-sm text-[var(--texto)]">Clima emocional del equipo</p>
+                                <p class="text-xs text-[var(--texto-sm)]">Patrones colectivos de estrés, motivación y cohesión por área</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="pillar-dot mt-1"></div>
+                            <div>
+                                <p class="font-semibold text-sm text-[var(--texto)]">Cultura organizacional real</p>
+                                <p class="text-xs text-[var(--texto-sm)]">Brechas entre la cultura declarada y la vivida en el día a día</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="pillar-dot mt-1"></div>
+                            <div>
+                                <p class="font-semibold text-sm text-[var(--texto)]">Riesgo psicosocial</p>
+                                <p class="text-xs text-[var(--texto-sm)]">Detección temprana de burnout, conflictos y rotación potencial</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="pillar-dot mt-1"></div>
+                            <div>
+                                <p class="font-semibold text-sm text-[var(--texto)]">Liderazgo y comunicación</p>
+                                <p class="text-xs text-[var(--texto-sm)]">Percepción del liderazgo y su impacto en el estado emocional del equipo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section id="como-funciona" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-14 reveal">
+            <span class="section-label">Metodología</span>
+            <h2 class="text-3xl md:text-4xl mt-3 text-[var(--bosque)]">Cuatro pasos.<br>Transformación real.</h2>
+            <div class="title-line"></div>
+            <p class="text-[var(--texto-sm)] mt-5 max-w-xl mx-auto">Un proceso estructurado que convierte datos emocionales en estrategias organizacionales concretas y medibles.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="step-card reveal">
+                <div class="step-icon"><i class="fas fa-search"></i></div>
+                <div class="text-xs font-bold text-[var(--salvia)] mb-2">FASE 01</div>
+                <h3 class="text-lg mb-3 text-[var(--bosque)]">Diagnóstico Inteligente</h3>
+                <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Evaluación multidimensional con IA que mapea el estado emocional de cada persona y genera perfiles individuales y colectivos con respaldo clínico.</p>
+            </div>
+            <div class="step-card reveal" style="transition-delay:0.1s">
+                <div class="step-icon"><i class="fas fa-drafting-compass"></i></div>
+                <div class="text-xs font-bold text-[var(--salvia)] mb-2">FASE 02</div>
+                <h3 class="text-lg mb-3 text-[var(--bosque)]">Diseño de Estrategia</h3>
+                <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Con base en el diagnóstico, diseñamos un plan de intervención a medida: talleres, acompañamiento, ajustes culturales y prioridades por área.</p>
+            </div>
+            <div class="step-card reveal" style="transition-delay:0.2s">
+                <div class="step-icon"><i class="fas fa-cogs"></i></div>
+                <div class="text-xs font-bold text-[var(--salvia)] mb-2">FASE 03</div>
+                <h3 class="text-lg mb-3 text-[var(--bosque)]">Ejecución e Intervención</h3>
+                <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Implementamos las estrategias con nuestro equipo de psicólogos clínicos: sesiones, talleres y acompañamiento continuo para líderes y equipos.</p>
+            </div>
+            <div class="step-card reveal" style="transition-delay:0.3s">
+                <div class="step-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="text-xs font-bold text-[var(--salvia)] mb-2">FASE 04</div>
+                <h3 class="text-lg mb-3 text-[var(--bosque)]">Medición de Resultados</h3>
+                <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Seguimiento continuo con métricas de bienestar, indicadores de desempeño y reportes ejecutivos para toma de decisiones basada en datos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<section class="py-20" style="background:var(--salvia-lt)">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-14 reveal">
+            <span class="section-label">Para quién es AMELIA</span>
+            <h2 class="text-3xl md:text-4xl mt-3 text-[var(--bosque)]">Diseñada para organizaciones<br>que lideran con propósito.</h2>
+            <div class="title-line"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="pillar-card reveal">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-4 shadow-sm">
+                    <i class="fas fa-rocket text-[var(--salvia)] text-lg"></i>
+                </div>
+                <h3 class="text-lg mb-2 text-[var(--bosque)]">Startups en crecimiento</h3>
+                <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Equipos que escalan rápido y necesitan mantener la cohesión cultural y el bienestar emocional sin sacrificar la velocidad de crecimiento.</p>
+            </div>
+            <div class="pillar-card reveal" style="transition-delay:0.1s">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-4 shadow-sm">
+                    <i class="fas fa-building text-[var(--salvia)] text-lg"></i>
+                </div>
+                <h3 class="text-lg mb-2 text-[var(--bosque)]">Medianas empresas</h3>
+                <p class="text-sm text-[var(--texto-sm)] leading-relaxed">Organizaciones que quieren reducir la rotación de talento, mejorar el clima laboral y cumplir con estándares de bienestar laboral.</p>
+            </div>
+            <div class="pillar-card reveal" style="transition-delay:0.2s">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-4 shadow-sm">
+                    <i class="fas fa-users-cog text-[var(--salvia)] text-lg"></i>
+                </div>
+                <h3 class="text-lg mb-2 text-[var(--bosque)]">Equipos de liderazgo</h3>
+                <p class="text-sm text-[var(--texto-sm)] leading-relaxed">CEOs, directores y gerentes que entienden que su estado emocional y el de sus equipos directos impacta directamente en los resultados del negocio.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- QUOTE -->
+<section class="py-16" style="background:var(--bosque)">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+        <i class="fas fa-quote-left text-[var(--salvia)] text-3xl mb-6 block opacity-60"></i>
+        <blockquote class="text-2xl md:text-3xl text-white leading-relaxed mb-6" style="font-family:'DM Serif Display',serif; font-weight:400;">
+            "Las organizaciones no fallan por falta de estrategia.<br>Fallan porque las personas que las sostienen están agotadas y nadie lo midió a tiempo."
+        </blockquote>
+        <p class="text-sm text-[var(--salvia)] font-semibold tracking-wide">Equipo Caminos del Ser</p>
+    </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="py-24" style="background:var(--terra-lt)">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+        <div class="reveal">
+            <span class="section-label" style="color:var(--terra)">Da el primer paso</span>
+            <h2 class="text-3xl md:text-4xl mt-3 mb-6 text-[var(--bosque)]">¿Sabes realmente cómo está<br>tu organización por dentro?</h2>
+            <p class="text-[var(--texto-sm)] mb-10 max-w-xl mx-auto leading-relaxed">
+                Agenda una sesión de diagnóstico gratuita con nuestro equipo. En 30 minutos te mostramos cómo AMELIA puede transformar el bienestar de tu organización en una ventaja competitiva real.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20solicitar%20un%20demo%20gratuito%20de%20AMELIA%20para%20mi%20organización" target="_blank" class="btn-terra">
+                    <i class="fab fa-whatsapp mr-2"></i>Agendar diagnóstico gratuito
+                </a>
+                <a href="index.html" class="btn-outline">Conocer más de Caminos del Ser</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--bosque)" class="text-white pt-14 pb-8">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-10 mb-10">
+            <div>
+                <p class="font-bold text-lg mb-2">Caminos del Ser</p>
+                <p class="text-sm text-white/60 leading-relaxed">Donde la tecnología y lo humano se encuentran para transformar la salud mental.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-sm mb-3 text-white/80 uppercase tracking-wider">Productos</p>
+                <ul class="space-y-2">
+                    <li><a href="amelia.html" class="text-sm text-white/60 hover:text-white transition-colors">AMELIA</a></li>
+                    <li><a href="dsme.html" class="text-sm text-white/60 hover:text-white transition-colors">DSME</a></li>
+                    <li><a href="cinformado.html" class="text-sm text-white/60 hover:text-white transition-colors">Cinformado</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-sm mb-3 text-white/80 uppercase tracking-wider">Contacto</p>
+                <a href="https://wa.me/573233796547" target="_blank" class="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-2">
+                    <i class="fab fa-whatsapp"></i> +57 323 379 6547
+                </a>
+            </div>
+        </div>
+        <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
+            <p class="text-xs text-white/40">© 2025 Caminos del Ser · Una marca Emcotic</p>
+            <p class="text-xs text-white/40">www.caminosdelser.co</p>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/573233796547?text=Hola%2C%20quiero%20información%20sobre%20AMELIA" target="_blank" class="wa-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp text-white text-2xl"></i>
+</a>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
