@@ -1,0 +1,19 @@
+{
+  "rewrites": [
+    {
+      "has": [{ "type": "host", "value": "dsme.caminosdelser.co" }],
+      "source": "/(.*)",
+      "destination": "/dsme.html"
+    },
+    {
+      "has": [{ "type": "host", "value": "amelia.caminosdelser.co" }],
+      "source": "/(.*)",
+      "destination": "/amelia.html"
+    },
+    {
+      "has": [{ "type": "host", "value": "cinformado.caminosdelser.co" }],
+      "source": "/(.*)",
+      "destination": "/cinformado.html"
+    }
+  ]
+}
